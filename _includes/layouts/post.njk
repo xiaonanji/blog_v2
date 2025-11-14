@@ -6,11 +6,9 @@ templateClass: tmpl-post
 
 
 {% block extraArticleHeader %}
-   {% set wc = content | striptags | wordcount %}
-   {% set wPerMinute = (wc / 240) + 1 %}
-   <aside>
-     {{ wPerMinute | round }} min read.
-   </aside>
+  <aside>
+    {{ content | readingTime }} min read.
+  </aside>
 {% endblock %}
 
 {% set shareUrl = metadata.url + page.url %}

@@ -161,6 +161,31 @@ module.exports = function (eleventyConfig) {
     return dt.toISO();
   });
 
+  // Reading time filter that supports CJK (Chinese/Japanese/Korean) text.
+  // For CJK languages we estimate by characters per minute (default 400),
+  // otherwise by words per minute (default 240).
+  eleventyConfig.addFilter("readingTime", function (content) {
+    if (!content) return 1;
+
+    const stripped = String(content).replace(/<[^>]+>/g, "").trim();
+
+    // CJK detection (covers common Chinese/Japanese/Korean ranges)
+    const cjkRegex = /[\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]/;
+    const hasCjk = cjkRegex.test(stripped);
+
+    if (hasCjk) {
+      // Count characters (ignore whitespace)
+      const chars = stripped.replace(/\s+/g, "").length;
+      const minutes = Math.max(1, Math.ceil(chars / 400));
+      return minutes;
+    } else {
+      // Count words for space-delimited languages
+      const words = (stripped.match(/\S+/g) || []).length;
+      const minutes = Math.max(1, Math.ceil(words / 240));
+      return minutes;
+    }
+  });
+
   // Get the first `n` elements of a collection.
   eleventyConfig.addFilter("head", (array, n) => {
     if (n < 0) {
