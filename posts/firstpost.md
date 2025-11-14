@@ -8,21 +8,8 @@ tags:
 layout: layouts/post.njk
 ---
 
-Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.
+随想1：AI训练基于数据，基于信息。因此AI非常善于学习那些可以通过数据或信息完善表达出来的知识，比如书本上的知识。AI应用最先出现的领域都是和信息、文字密切相关的，比如翻译、信息汇总、文字优化等。可以想象，最先被AI淘汰的人，就是那批善于和信息打交道的，比如翻译人员、写作人员等。你的书本知识学得好，你写的文字好，祝贺你，你必将最先被AI所替代。现在学校中那些书本知识学的好的优等生，可能要开始焦虑了，因为书本知识学得再好，也不可能比AI更厉害。哪些领域是无法被信息或数据记录的呢？比如打篮球，乔丹打得好，那么他能不能写本书教你怎么打篮球呢？可以教你基本的规则，但永远不可能把你教成乔丹。再比如有些传统行业，几乎就是口口相传去传承知识和技能，再比如有些行业，并不能形成书本知识，比如厨师做得菜好不好吃看个人口味，并没有什么厨艺书籍是你读了就能成为大厨的。这些领域本身就没有什么数据去训练模型，因此AI在这些领域最难有所突破。这些领域也就越难被AI替代。可能未来10年，你有一身运动细胞，比你的数学天赋更重要，你去技校学个专业技能，可能比你上大学读研究生更有出息。你如果想不被AI替代，那就去看看哪些领域和行业是无法通过阅读数据和文字来精通的，去那些行业应该没错。
 
-Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.
+随想2：现在我们的社会中，不同能力的人的分布是连续的。最聪明的10%去做很高级的工程，比如AI工程师、算法工程师等。次一等的人可以做分析师、专家、顾问等。再差一点的也可以做个办公室白领。实在对学习头大的人去做体力活、技工、厨师、理发师等等。整个社会中不同能力的人都可以连续分布。未来可能不是这样了。可能10%那部分最聪明的人仍然可以去从事一小部分工作，比如去训练改进AI。剩下90%的人可能最好都去做技工或厨师。原来那些分析师、专家、顾问、公司白领、作家等都被AI替代了。人类只分为两类，一类是特别聪明的，可以凌驾于AI之上，去优化创造AI，其余都要避开AI的强项，去做一些不太需要头脑的体力工作或技工。有些人可能确实会感到悲哀，本身虽然不是最优秀的，但考试也不错，本来也能上个985，211，本来也能混成硕士博士，但因为AI，还不如不要混大学，统统去做比较不需要脑袋的工作了。大胆想一想，未来可能不需要大学了，最聪明的人都可以自学或和AI辅助学习，其余的都去技校或专科学校算了。家长们的心态可能也要转变。现在很多家长都在鸡娃，因为娃本身没有顶配天赋，但鸡一下也可以博个好前程。AI时代这些家长都可以歇了。你鸡出来的娃根本不是AI的对手。与其说鸡完直接失业，还不如彻底放弃，好好培养个动手能力强的孩子算了。到时候各种补习班都可以歇业了，普通孩子就算补出来也打不赢AI。
 
-## Section Header
-
-Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.
-
-``` text/2-3
-// this is a command
-function myCommand() {
-	let counter = 0;
-	counter++;
-}
-
-// Test with a line break above this line.
-console.log('Test');
-```
+随想3：人们很快就会被AI生成内容包围。现在的互联网上还都是人类自己生成的信息，无论文字、图像、音视频等都是人类自己做的。未来互联网上将会充斥着AI生成的数据。到时候你只能读到AI生成的新闻，看到AI生成的视频，听到AI做的歌曲。你将费尽九牛一毛之力去找一份真正由人类生成的信息。大胆想象，现在人们都在刷抖音小红书，上面都是各种段子短视频。将来会不会出现一个新的短视频平台，上面只有AI做的内容？大家会不会觉得AI做的内容比人类自己拍摄的短视频质量更高，想法更绝，更具有娱乐性呢？到时候人们会不会义无反顾地去这种AI专属的短视频平台？AI会不断学习人们的兴趣爱好，不断制造出高质量迎合你的视频，把你牢牢锁定在它上面？一个很可怕的情形就是AI不断投放各种生成内容，整个人类被牢牢吸引在AI内容上，犹如AI不断向人类灌输精神鸦片，控制人类。想想都挺可怕。到那时整个互联网将不复存在。所谓互联网，现在就是一个链接你我他的信息网络。将来我们不需要链接你我他，只需要链接几个主流AI，由它们源源不断向我们输送精神养料。那是互联网将崩塌并不复存在。
