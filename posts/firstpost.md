@@ -1,5 +1,5 @@
 ---
-title: AI随想.
+title: AI随想
 description: 这是我对AI大发展下未来的一些观点的集合
 date: 2025-11-14
 scheduled: 2025-11-14
