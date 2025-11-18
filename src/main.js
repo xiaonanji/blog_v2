@@ -199,7 +199,13 @@ addEventListener(
   true
 );
 
-if (window.ResizeObserver && document.querySelector("header nav #nav")) {
+function initReadingProgress() {
+  if (!window.ResizeObserver) {
+    return true;
+  }
+  if (!document.querySelector("header nav #nav")) {
+    return false;
+  }
   var progress = document.getElementById("reading-progress");
 
   var timeOfLastScroll = 0;
@@ -235,6 +241,17 @@ if (window.ResizeObserver && document.querySelector("header nav #nav")) {
     winHeight = window.innerHeight;
     scroll();
   }).observe(document.body);
+  return true;
+}
+
+if (!initReadingProgress()) {
+  addEventListener(
+    "DOMContentLoaded",
+    () => {
+      initReadingProgress();
+    },
+    { once: true }
+  );
 }
 
 function expose(name, fn) {
