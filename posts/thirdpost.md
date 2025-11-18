@@ -1,29 +1,19 @@
 ---
-title: This is my third post.
-description: This is a post on My Blog about win-win survival strategies.
-date: 2018-08-24
-scheduled: 2018-08-24
+title: 职场心得
+description: 记录职场感悟
+date: 2025-11-18
+scheduled: 2025-11-18
 tags:
-  - second-tag
+  - Career
 layout: layouts/post.njk
 ---
-Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.
 
-``` js/2/4
-// this is a command
-function myCommand() {
-	let counter = 0;
+职场最大的内耗，不是加班熬夜，二是把精力浪费到不值当的人和事上。
 
-	counter++;
+无数次把精力放到琐事上：被同事的闲话纠结，因不同意见争执而搞得自己心神不宁，为无关紧要的评价或升迁问题怀疑人生。
 
-}
+其实这些都没有必要。
 
-// Test with a line break above this line.
-console.log('Test');
-```
+某位哲人曾说过，世间所有烦恼皆因源自人与人之间的关系。职场就是一堆人聚在一起，这就是烦恼滋生的源泉。我们在这堆人里上班，不是为了自寻烦恼，无非为赚钱。钱要赚，气没必要受，毕竟开心和闹心，拿到的工资没区别。既然到手的钱没区别，那就不要让这堆人给自己添堵，没必要为了这堆人心烦。尽早建立情绪隔离墙，不要让职场上的负面情绪影响到自己的生活和身边的人。来上班就是为了拿钱，钱给了目的就达到了。如果为了拿这份钱要去受气，要让自己不开心，那你要问问自己，这份钱对得起你的不开心吗？
 
-Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.
-
-## Section Header
-
-Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.
+人在世界上走这一辈子，不容易。如果可能，尽量开心些，笑着走路总比哭着走强。任何让你不开心的事，最多最多让它逗留3分钟，3分钟之后一定要把它抛到脑后。你在这个世界剩下的每一分每一秒都太重要了，你生活遇到的99%的糟心事都不值得你糟心。
