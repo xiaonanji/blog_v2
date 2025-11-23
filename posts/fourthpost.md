@@ -1,22 +1,14 @@
 ---
-title: This is my fourth post.
-description: This is a post on My Blog about touchpoints and circling wagons.
-date: 2018-09-30
-scheduled: 2018-09-30
-tags: second-tag
+title: Do we still need to test coding skill in interviews?
+description:
+date: 2025-11-23
+scheduled: 2025-11-23
+tags: AI
 layout: layouts/post.njk
 ---
 
-Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.
+Our math exams stop testing whether students can calculate complex addition/subtraction/multiplication/division. Why? It is not because they are not important. Calculation is still a critical skill that we use day to day. But if you ask a student to learn how to calculate 273*521, he will be surprised: why do I need to do that by hands? A calculator can do it faster and more accurate.
 
-Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.
+Now we probably can ask the similar quesiton on coding: why do I still need to test whether you know sorting algorithm? How to use a data structure? How to call a specific API? How to use a web dev framework? AI can do it faster and better.
 
-![An image](https://cdn.pixabay.com/photo/2020/08/25/11/11/zebra-5516455_1280.jpg)
-
-## Section Header
-
-Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.
-
-## A sample GIF
-
-![A sample GIF](https://thumbs.gfycat.com/EqualCreativeCowbird-max-1mb.gif)
+I know little to none about the modern front end or backend frameworks. I never code in Javascript. But I can still use Codex or Claude to build a simple web app or mobile app. As long as I can describe what I want clearly to AI, it always can give me something useable. Our moment of not needing to know how to code probably arrived already or going to arrive very soon...
