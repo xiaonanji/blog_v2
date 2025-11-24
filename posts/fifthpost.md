@@ -1,10 +1,19 @@
 ---
-title: This is my fifth post.
-description: Draft
-date: 2021-06-22
-scheduled: 2021-06-22
+title: 曾国藩教育我两三则
+description: 读圣人书
+date: 2025-11-24
+scheduled: 2025-11-24
 layout: layouts/post.njk
-draft: true
 ---
 
-this is a draft post, by setting `draft: true` on the frontmatter, the post would not be built but you'll be able to see it in development mode.
+大处着眼，小处着手，群居守口，独居守心。
+
+信任 = (可信度 X 可靠度 X 可亲度) / 自私度
+
+真正有风骨的人理解轮回，不去羡慕别人起高楼微微闭眼，松声静听如海。
+
+养生就是少操心，少纠结，少烦恼；多走路，多健身，多运动。
+
+心神是君，胴体是臣，如果累身不累心，再怎么累也累不垮，甚至还快乐。省思虑，除烦恼，少看手机，省出来的时间读书，思考，喝酒，聊天，发呆，滚床单。
+
+行步常勤，筋骨常动。
