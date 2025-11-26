@@ -58,6 +58,7 @@ const markdownItAnchor = require("markdown-it-anchor");
 const localImages = require("./third_party/eleventy-plugin-local-images/.eleventy.js");
 const CleanCSS = require("clean-css");
 const GA_ID = require("./_data/metadata.json").googleAnalyticsId;
+const Image = require("@11ty/eleventy-img");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
@@ -98,15 +99,20 @@ module.exports = function (eleventyConfig) {
     }
   );
 
-  eleventyConfig.addNunjucksAsyncShortcode("img", async (src, widths=[null]) => {
+  eleventyConfig.addShortcode("img", async function (src, widths = [960], alt = "") {
     let metadata = await Image(src, {
-      widths: widths,
+      widths,
       formats: ["webp", "jpeg"],
-      outputDir: "./_site/img/"
+      outputDir: "./_site/img/",
     });
 
+    // Pick one format to use as the default <img> src
     let image = metadata.jpeg[0];
-    return `<img src="${image.url}" width="${image.width}" height="${image.height}">`;
+
+    return `<img src="${image.url}" 
+                 width="${image.width}" 
+                 height="${image.height}" 
+                 alt="${alt}">`;
   });
 
   async function lastModifiedDate(filename) {
