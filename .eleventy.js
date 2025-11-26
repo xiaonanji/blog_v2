@@ -99,19 +99,18 @@ module.exports = function (eleventyConfig) {
     }
   );
 
-  eleventyConfig.addShortcode("img", async function (src, widths = [960], alt = "") {
+  eleventyConfig.addAsyncShortcode("img", async function (src, widths = [960], alt = "") {
     let metadata = await Image(src, {
       widths,
       formats: ["webp", "jpeg"],
       outputDir: "./_site/img/",
     });
 
-    // Pick one format to use as the default <img> src
     let image = metadata.jpeg[0];
 
-    return `<img src="${image.url}" 
-                 width="${image.width}" 
-                 height="${image.height}" 
+    return `<img src="${image.url}"
+                 width="${image.width}"
+                 height="${image.height}"
                  alt="${alt}">`;
   });
 
