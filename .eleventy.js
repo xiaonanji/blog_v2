@@ -98,6 +98,17 @@ module.exports = function (eleventyConfig) {
     }
   );
 
+  eleventyConfig.addNunjucksAsyncShortcode("img", async (src, widths=[null]) => {
+    let metadata = await Image(src, {
+      widths: widths,
+      formats: ["webp", "jpeg"],
+      outputDir: "./_site/img/"
+    });
+
+    let image = metadata.jpeg[0];
+    return `<img src="${image.url}" width="${image.width}" height="${image.height}">`;
+  });
+
   async function lastModifiedDate(filename) {
     try {
       const { stdout } = await execFile("git", [
