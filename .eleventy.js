@@ -58,7 +58,6 @@ const markdownItAnchor = require("markdown-it-anchor");
 const localImages = require("./third_party/eleventy-plugin-local-images/.eleventy.js");
 const CleanCSS = require("clean-css");
 const GA_ID = require("./_data/metadata.json").googleAnalyticsId;
-const Image = require("@11ty/eleventy-img");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
@@ -98,25 +97,6 @@ module.exports = function (eleventyConfig) {
         });
     }
   );
-
-  eleventyConfig.addAsyncShortcode("img", async function (src, width, alt = "") {
-    // width comes in as a string from Liquid, e.g. "1853"
-    const w = width ? parseInt(width, 10) : 960;   // default 960 if missing
-    const widths = [w];
-
-    let metadata = await Image(src, {
-      widths,
-      formats: ["webp", "jpeg"],
-      outputDir: "./_site/img/",
-    });
-
-    let image = metadata.jpeg[0];
-
-    return `<img src="${image.url}"
-                 width="${image.width}"
-                 height="${image.height}"
-                 alt="${alt}">`;
-  });
 
   async function lastModifiedDate(filename) {
     try {
