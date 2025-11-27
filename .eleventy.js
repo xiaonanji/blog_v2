@@ -99,7 +99,11 @@ module.exports = function (eleventyConfig) {
     }
   );
 
-  eleventyConfig.addAsyncShortcode("img", async function (src, widths = [960], alt = "") {
+  eleventyConfig.addAsyncShortcode("img", async function (src, width, alt = "") {
+    // width comes in as a string from Liquid, e.g. "1853"
+    const w = width ? parseInt(width, 10) : 960;   // default 960 if missing
+    const widths = [w];
+
     let metadata = await Image(src, {
       widths,
       formats: ["webp", "jpeg"],
