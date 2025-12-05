@@ -22,6 +22,71 @@ date: Last Modified
 
 <div id="posts">
   <h2>Posts</h2>
-  {% set postslist = collections.posts %}
-  {% include "postslist.njk" %}
+  {% set tagList = collections.tagList or [] %}
+  {% if tagList.length %}
+  <div id="tag-filter">
+    <span>Filter by tag:</span>
+    {% for tag in tagList %}
+      <button type="button" class="tag-chip" data-tag="{{ tag }}">{{ tag }}</button>
+    {% endfor %}
+    <button type="button" class="tag-chip tag-clear" data-clear>Clear</button>
+  </div>
+  {% endif %}
+
+  <ul id="post-list">
+    {% for post in collections.posts %}
+      <li data-tags="{{ (post.data.tags or []) | join('|') }}">
+        <a href="{{ post.url | url }}">{{ post.data.title or post.url }}</a>
+        <time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+      </li>
+    {% endfor %}
+  </ul>
 </div>
+
+<script>
+(() => {
+  const tagButtons = Array.from(document.querySelectorAll("[data-tag]"));
+  const clearButton = document.querySelector("[data-clear]");
+  const posts = Array.from(document.querySelectorAll("#post-list li"));
+  const selected = new Set();
+
+  function applyFilter() {
+    if (!selected.size) {
+      posts.forEach((li) => {
+        li.hidden = false;
+      });
+      return;
+    }
+
+    posts.forEach((li) => {
+      const tags = (li.dataset.tags || "").split("|").filter(Boolean);
+      const match = tags.some((tag) => selected.has(tag));
+      li.hidden = !match;
+    });
+  }
+
+  tagButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const tag = btn.dataset.tag;
+      if (selected.has(tag)) {
+        selected.delete(tag);
+        btn.classList.remove("active");
+      } else {
+        selected.add(tag);
+        btn.classList.add("active");
+      }
+      applyFilter();
+    });
+  });
+
+  if (clearButton) {
+    clearButton.addEventListener("click", () => {
+      selected.clear();
+      tagButtons.forEach((btn) => btn.classList.remove("active"));
+      applyFilter();
+    });
+  }
+
+  applyFilter();
+})();
+</script>
