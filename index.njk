@@ -34,6 +34,7 @@ date: Last Modified
   <ul id="post-list">
     {# Newest first #}
     {% for post in collections.posts | reverse %}
+      {% if post.fileSlug == "always_on_top" %}{% continue %}{% endif %}
       <li data-tags="{{ (post.data.tags or []) | join('|') }}">
         <a href="{{ post.url | url }}">{{ post.data.title or post.url }}</a>
         <time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
