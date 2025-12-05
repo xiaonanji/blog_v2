@@ -1,10 +1,18 @@
 ---
-title: Sean's Blog.
+title: Sean's Blog
 layout: layouts/home.njk
 description: Sean's blogs about tech and life
 image: https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg
 date: Last Modified
 ---
+
+{% set pinned = collections.posts | find(p => p.fileSlug == "always_on_top") %}
+{% if pinned %}
+<div id="Always on top">
+  <h2>Always on top</h2>
+  <a href="{{ pinned.url | url }}">{{ pinned.data.title or "Always on top" }}</a>
+</div>
+{% endif %}
 
 <div id="posts">
   <h2>Posts</h2>
