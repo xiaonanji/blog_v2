@@ -8,6 +8,16 @@
   color: red;
 }
 
+.yt-shortcode {
+  display: block;
+  width: 100%;        /* fill the text column */
+  max-width: 100%;    /* prevent overflow */
+  aspect-ratio: 16/9;
+  height: auto;       /* let the aspect ratio drive height */
+  border: 0;
+}
+
+
 /*
   Make image rasterization lazy. This means that e.g. the cost of the
   blurry placeholder is never paid if images load before entering
