@@ -25,11 +25,9 @@ date: Last Modified
   {% set tagList = collections.tagList or [] %}
   {% if tagList.length %}
   <div id="tag-filter">
-    <span>Filter by tag:</span>
     {% for tag in tagList %}
       <button type="button" class="tag-chip" data-tag="{{ tag }}">{{ tag }}</button>
     {% endfor %}
-    <button type="button" class="tag-chip tag-clear" data-clear>Clear</button>
   </div>
   {% endif %}
 
@@ -43,10 +41,17 @@ date: Last Modified
   </ul>
 </div>
 
+<style>
+  /* Highlight selected tags */
+  .tag-chip.active {
+    background: #d7ecff;
+    color: #0b3d68;
+  }
+</style>
+
 <script>
 (() => {
   const tagButtons = Array.from(document.querySelectorAll("[data-tag]"));
-  const clearButton = document.querySelector("[data-clear]");
   const posts = Array.from(document.querySelectorAll("#post-list li"));
   const selected = new Set();
 
@@ -78,14 +83,6 @@ date: Last Modified
       applyFilter();
     });
   });
-
-  if (clearButton) {
-    clearButton.addEventListener("click", () => {
-      selected.clear();
-      tagButtons.forEach((btn) => btn.classList.remove("active"));
-      applyFilter();
-    });
-  }
 
   applyFilter();
 })();
