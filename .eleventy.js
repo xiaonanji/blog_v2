@@ -59,19 +59,6 @@ const localImages = require("./third_party/eleventy-plugin-local-images/.elevent
 const CleanCSS = require("clean-css");
 const GA_ID = require("./_data/metadata.json").googleAnalyticsId;
 
-module.exports = (eleventyConfig) => {
-  eleventyConfig.addShortcode
-  (
-    "youtube", (videoURL, title) => {
-      const url = new URL(videoURL);
-      const id = url.searchParams.get("v");
-      return `<iframe class="yt-shortcode" src="https://www.youtube-nocookie.com/embed/${id}" title="YouTube video player${
-        title ? ` for ${title}` : ""
-      }" frameborder="0" allowfullscreen></iframe>`;
-    }
-  );
-};
-
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
@@ -84,6 +71,17 @@ module.exports = function (eleventyConfig) {
       "img,amp-img,amp-video,meta[property='og:image'],meta[name='twitter:image'],amp-story",
     verbose: false,
   });
+
+  eleventyConfig.addShortcode
+  (
+    "youtube", (videoURL, title) => {
+      const url = new URL(videoURL);
+      const id = url.searchParams.get("v");
+      return `<iframe class="yt-shortcode" src="https://www.youtube-nocookie.com/embed/${id}" title="YouTube video player${
+        title ? ` for ${title}` : ""
+      }" frameborder="0" allowfullscreen></iframe>`;
+    }
+  );
 
   eleventyConfig.addPlugin(require("./_11ty/img-dim.js"));
   eleventyConfig.addPlugin(require("./_11ty/json-ld.js"));
