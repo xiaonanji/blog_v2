@@ -32,7 +32,8 @@ date: Last Modified
   {% endif %}
 
   <ul id="post-list">
-    {% for post in collections.posts %}
+    {# Newest first #}
+    {% for post in collections.posts | reverse %}
       <li data-tags="{{ (post.data.tags or []) | join('|') }}">
         <a href="{{ post.url | url }}">{{ post.data.title or post.url }}</a>
         <time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
