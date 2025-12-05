@@ -3,7 +3,8 @@ title: Do we still need to test coding skill in interviews?
 description:
 date: 2025-11-23
 scheduled: 2025-11-23
-tags: AI
+tags:
+  - AI
 layout: layouts/post.njk
 ---
 

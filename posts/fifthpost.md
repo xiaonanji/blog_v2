@@ -3,6 +3,8 @@ title: 曾国藩教育我两三则
 description: 读圣人书
 date: 2025-11-24
 scheduled: 2025-11-24
+tags:
+  - Reading notes
 layout: layouts/post.njk
 ---
 

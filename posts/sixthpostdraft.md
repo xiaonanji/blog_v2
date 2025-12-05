@@ -3,6 +3,8 @@ title: 创始人vs职业经理人
 description: 创始人运营公司和职业经理人运营公司有什么区别
 date: 2025-11-26
 scheduled: 2025-11-26
+tags:
+  - Career
 layout: layouts/post.njk
 ---
 
