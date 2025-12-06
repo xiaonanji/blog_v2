@@ -15,7 +15,7 @@ date: Last Modified
 
 {% if pinned %}
 <div id="Always on top">
-  <h2>Always on top</h2>
+  <h3>Always on top</h3>
   <ul>
     <li><a href="{{ pinned.url | url }}">{{ pinned.data.title or "Always on top" }}</a></li>
     <li><a href="https://pythonformatter.seanji.net/" target="_blank" rel="noopener noreferrer">Python formatter</a></li>
@@ -24,7 +24,7 @@ date: Last Modified
 {% endif %}
 
 <div id="posts">
-  <h2>Posts</h2>
+  <h3>Posts</h3>
   {% set tagList = collections.tagList or [] %}
   {% if tagList.length %}
   <div id="tag-filter">
