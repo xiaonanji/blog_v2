@@ -156,3 +156,28 @@ Generates a strong [Content-Security-Policy (CSP)](https://developer.mozilla.org
 ## Disclaimer
 
 This is not an officially supported Google product, but rather [Malte's](https://twitter.com/cramforce) private best-effort open-source project.
+
+
+## Notion Export
+Go to notion-export folder. If this is the firs time, then run commant:
+
+```
+npm init -y
+npm install @notionhq/client notion-to-md node-fetch@2 dotenv
+```
+
+Then create a .env file in the notion-export folder with the following content:
+
+```
+NOTION_TOKEN=your-notion-token
+NOTION_PAGE_ID=your-notion-page-id
+```
+You can create a connection in notion setting to get the NOTION_TOKEN. The PAGE_ID is the 32 character string in the url of the page you want to export.
+
+Finally run:
+
+```
+npm run export:notion
+```
+
+The page you want to export will be created as a markdown. All the images will be saved in the same-name folder under /img.
