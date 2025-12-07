@@ -1,0 +1,20 @@
+{
+  "name": "notion-export",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "export:notion": "node export.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@notionhq/client": "^5.4.0",
+    "dotenv": "^17.2.3",
+    "node-fetch": "^2.7.0",
+    "notion-to-md": "^3.1.9"
+  }
+}
+
