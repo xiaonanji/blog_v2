@@ -7,17 +7,26 @@ date: Last Modified
 ---
 
 {% set pinned = false %}
+{% set stickers = false %}
 {% for post in collections.posts %}
   {% if post.fileSlug == "always_on_top" %}
     {% set pinned = post %}
   {% endif %}
+  {% if post.fileSlug == "stickers" %}
+    {% set stickers = post %}
+  {% endif %}
 {% endfor %}
 
-{% if pinned %}
+{% if pinned or stickers %}
 <div id="Always on top">
   <h3>Always on top</h3>
   <ul>
+    {% if pinned %}
     <li><a href="{{ pinned.url | url }}">{{ pinned.data.title or "Always on top" }}</a></li>
+    {% endif %}
+    {% if stickers %}
+    <li><a href="{{ stickers.url | url }}">{{ stickers.data.title or "Stickers" }}</a></li>
+    {% endif %}
     <li><a href="https://pythonformatter.seanji.net/" target="_blank" rel="noopener noreferrer">Python formatter</a></li>
   </ul>
 </div>
@@ -37,7 +46,7 @@ date: Last Modified
   <ul id="post-list">
     {# Newest first #}
     {% for post in collections.posts | reverse %}
-      {% if post.fileSlug != "always_on_top" %}
+      {% if post.fileSlug != "always_on_top" and post.fileSlug != "stickers" %}
         <li data-tags="{{ (post.data.tags or []) | join('|') }}">
           <a href="{{ post.url | url }}">{{ post.data.title or post.url }}</a>
           <time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
