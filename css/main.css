@@ -1158,6 +1158,7 @@ article h1 {
   flex-wrap: wrap;
   gap: 16px;
   padding: 8px 0;
+  align-items: flex-start;
 }
 .sticker {
   background: #fff6a6;
