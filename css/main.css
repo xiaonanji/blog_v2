@@ -1167,6 +1167,19 @@ article h1 {
   padding: 16px 18px;
   max-width: 260px;
   color: #1f1f1f;
+  position: relative;
+}
+.sticker::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  right: 20px;
+  width: 16px;
+  height: 16px;
+  background: radial-gradient(circle, #e74c3c 0%, #e74c3c 40%, transparent 40%);
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 .sticker:nth-child(3n+1) {
   transform: rotate(-2deg);
