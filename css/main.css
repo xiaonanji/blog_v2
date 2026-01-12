@@ -1165,9 +1165,17 @@ article h1 {
   border: 2px solid #1f1f1f;
   box-shadow: 6px 6px 0 #1f1f1f;
   padding: 16px 18px;
-  transform: rotate(-1deg);
   max-width: 260px;
   color: #1f1f1f;
+}
+.sticker:nth-child(3n+1) {
+  transform: rotate(-2deg);
+}
+.sticker:nth-child(3n+2) {
+  transform: rotate(1deg);
+}
+.sticker:nth-child(3n+3) {
+  transform: rotate(-1deg);
 }
 .sticker p {
   margin: 0;
