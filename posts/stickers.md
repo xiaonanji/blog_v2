@@ -49,6 +49,11 @@ layout: layouts/post.njk
     <p><code>| --- | --- |</code></p>
     <p><code>| 内容1 | 内容2 |</code></p>
   </div>
+
+  <div class="sticker">
+    <p><strong>换行</strong></p>
+    <p>如何单换行不显示为换行，使用两个换行(隔一行)执行markdown中的换行</p>
+  </div>
 </div>
 </section>
 
