@@ -78,3 +78,12 @@ layout: layouts/post.njk
     </div>
   </div>
 </section>
+
+<section>
+  <h2>Personal</h2>
+  <div class="stickers">
+    <div class="sticker">
+      Gonggong's phone number: 0493998886
+    </div>
+  </div>
+</section>
