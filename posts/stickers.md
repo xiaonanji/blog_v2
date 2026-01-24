@@ -76,6 +76,22 @@ layout: layouts/post.njk
       <p><strong>Select next occurrences of selection</strong></p>
       <p><code>Ctrl+D</code></p>
     </div>
+    <div class="sticker">
+      <p><strong>Multi-Cursor on beginning of line:</strong></p>
+      <p>
+      1. Place cursor at the beginning of the first line. 
+      2. Hold <code>Alt + Shift</code> and click at the beginning of the last line. 
+      3. Or hold <code>Alt + Shift and press Down Arrow</code> repeatedly
+      </p>
+    </div>
+    <div class="sticker">
+      <p><strong>Multi-Cursor on beginning of line:</strong></p>
+      <p>
+      1. Select all the lines you want to edit. 
+      2. Press <code>Alt + Shift + I</code> — this places a cursor at the end of each selected line. 
+      3. Press Home to move all cursors to the beginning
+      </p>
+    </div>
   </div>
 </section>
 
