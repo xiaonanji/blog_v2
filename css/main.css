@@ -1156,41 +1156,140 @@ article h1 {
 .stickers {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
-  padding: 8px 0;
+  gap: 24px;
+  padding: 20px 0 40px;
   align-items: flex-start;
 }
+
 .sticker {
-  background: #fff6a6;
-  border: 2px solid #1f1f1f;
-  box-shadow: 6px 6px 0 #1f1f1f;
-  padding: 16px 18px;
-  max-width: 260px;
-  color: #1f1f1f;
+  background: #fff9c4;
+  border: 3px solid #2d2d2d;
+  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.7);
+  padding: 24px 28px;
+  min-width: 200px;
+  max-width: 320px;
+  flex: 1 1 280px;
+  color: #1a1a1a;
   position: relative;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
+.sticker:hover {
+  transform: translateY(-4px) rotate(0deg) !important;
+  box-shadow: 12px 12px 0 rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+/* Pushpin effect */
 .sticker::before {
   content: "";
   position: absolute;
-  top: -8px;
-  right: 20px;
-  width: 16px;
-  height: 16px;
-  background: radial-gradient(circle, #e74c3c 0%, #e74c3c 40%, transparent 40%);
-  border-radius: 50% 50% 50% 0;
-  transform: rotate(-45deg);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  top: -10px;
+  right: 30px;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, #ef5350 0%, #d32f2f 60%, transparent 60%);
+  border-radius: 50%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.3);
+  z-index: 1;
 }
-.sticker:nth-child(3n+1) {
-  transform: rotate(-2deg);
+
+/* Pushpin shadow */
+.sticker::after {
+  content: "";
+  position: absolute;
+  top: -3px;
+  right: 35px;
+  width: 10px;
+  height: 10px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  filter: blur(2px);
 }
-.sticker:nth-child(3n+2) {
-  transform: rotate(1deg);
+
+/* Rotation variations */
+.sticker:nth-child(4n+1) {
+  transform: rotate(-2.5deg);
 }
-.sticker:nth-child(3n+3) {
+.sticker:nth-child(4n+2) {
+  transform: rotate(1.5deg);
+}
+.sticker:nth-child(4n+3) {
   transform: rotate(-1deg);
 }
+.sticker:nth-child(4n+4) {
+  transform: rotate(2deg);
+}
+
+/* Color variations for visual hierarchy */
+section:nth-of-type(1) .sticker {
+  background: #fff9c4; /* Yellow - default */
+}
+section:nth-of-type(2) .sticker {
+  background: #e1f5e1; /* Light green */
+}
+section:nth-of-type(3) .sticker {
+  background: #ffe0e6; /* Light pink */
+}
+section:nth-of-type(4) .sticker {
+  background: #e3f2fd; /* Light blue */
+}
+
 .sticker p {
-  margin: 0;
-  font-weight: 600;
+  margin: 0 0 10px 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.sticker p:last-child {
+  margin-bottom: 0;
+}
+
+.sticker p strong {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  color: #000;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.15);
+  padding-bottom: 6px;
+}
+
+/* Code styling inside stickers */
+.sticker code {
+  background: rgba(0, 0, 0, 0.08) !important;
+  color: #c7254e !important;
+  padding: 4px 7px !important;
+  border-radius: 3px;
+  font-size: 0.95rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
+  font-weight: 500;
+}
+
+/* Section spacing */
+article section {
+  margin-bottom: 60px;
+}
+
+article section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 3px solid var(--primary);
+  color: #eee;
+  font-style: italic;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .sticker {
+    min-width: 100%;
+    max-width: 100%;
+  }
+  
+  article section h2 {
+    font-size: 1.8rem;
+  }
 }

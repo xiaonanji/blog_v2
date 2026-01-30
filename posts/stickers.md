@@ -16,37 +16,42 @@ layout: layouts/post.njk
 
     <div class="sticker">
       <p><strong>文本样式</strong></p>
-      <p><code>*斜体*</code> 或 <code>_斜体_</code></p>
-      <p><code>**粗体**</code> 或 <code>__粗体__</code></p>
-      <p><code>~~删除线~~</code></p>
+      <p><code>&#42;斜体&#42;</code> 或 <code>&#95;斜体&#95;</code></p>
+      <p><code>&#42;&#42;粗体&#42;&#42;</code> 或 <code>&#95;&#95;粗体&#95;&#95;</code></p>
+      <p><code>&#126;&#126;删除线&#126;&#126;</code></p>
     </div>
 
     <div class="sticker">
       <p><strong>列表</strong></p>
       <p><code>- 无序列表</code></p>
-      <p><code>* 也是无序</code></p>
+      <p><code>&#42; 也是无序</code></p>
       <p><code>1. 有序列表</code></p>
       <p><code>2. 第二项</code></p>
     </div>
 
     <div class="sticker">
       <p><strong>引用与代码</strong></p>
-      <p><code>&gt; 引用内容</code></p>
-      <p><code>`行内代码`</code></p>
-      <p><code>```语言名</code><br><code>代码块</code><br><code>```</code></p>
+      <code>&gt; 引用内容</code>
+      <p/>
+      <code>&#96;行内代码&#96;</code>
+      <p/>
+      <code>&#96;&#96;&#96;代码块&#96;&#96;&#96;</code>
     </div>
 
     <div class="sticker">
       <p><strong>链接与图片</strong></p>
-      <p><code>[链接文字](url)</code></p>
-      <p><code>![图片描述](url)</code></p>
+      <code>&#91;链接文字&#93;(url)</code>
+      <p/>
+      <code>!&#91;图片描述&#93;(url)</code>
     </div>
 
     <div class="sticker">
       <p><strong>表格</strong></p>
-      <p><code>| 列1 | 列2 |</code></p>
-      <p><code>| --- | --- |</code></p>
-      <p><code>| 内容1 | 内容2 |</code></p>
+      <code>&#124; 列1 &#124; 列2 &#124;</code>
+      <p/>
+      <code>&#124; --- &#124; --- &#124;</code>
+      <p/>
+      <code>&#124; 内容1 &#124; 内容2 &#124;</code>
     </div>
 
     <div class="sticker">
@@ -95,32 +100,26 @@ layout: layouts/post.njk
 </section>
 
 <section>
-  <h2>Personal</h2>
-  <div class="stickers">
-    <div class="sticker">
-      Gonggong's phone number: 0493998886
-    </div>
-  </div>
-</section>
-
-
-<section>
   <h2>MacOS</h2>
   <div class="stickers">
     <div class="sticker">
-      Toggle full screen: Ctrl+Alt+F
+      <p><strong>Toggle full screen:</strong></p>
+      <p><code>Ctrl+Alt+F</code></p>
     </div>
     <div class="sticker">
-      <p>Screenshot - entire screen: shift+cmd+3</p>
-      <p>Screenshot - selected: shift+cmd+4</p>
-      <p>Hold ctrl while taking the shot: copy to clipboard</p>
+      <p><strong>Screenshot</strong></p>
+      <p>Entire screen: <code>Shift+Cmd+3</code></p>
+      <p>Selected: <code>Shift+Cmd+4</code></p>
+      <p>To clipboard: Hold <code>Ctrl</code> while taking the shot</p>
     </div>
     <div class="sticker">
-      <p>Choose input languages: Ctrl+Space</p>
+      <p><strong>Choose input languages:</strong></p>
+      <p><code>Ctrl+Space</code></p>
     </div>
     <div class="sticker">
-      <p>Terminal command kill: Ctrl+C</p>
-      <p>Terminal command suspend: Ctrl+D</p>
+      <p><strong>Terminal command</strong></p>
+      <p>Kill: <code>Ctrl+C</code></p>
+      <p>Suspend: <code>Ctrl+D</code></p>
     </div>
   </div>
 </section>
