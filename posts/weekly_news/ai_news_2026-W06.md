@@ -48,7 +48,7 @@ layout: layouts/post.njk
 **意义**
 这些发布展示了AI领域基础模型和能力的最新进展，为未来多模态交互和虚拟空间应用奠定基础。
 
-**标签**：#基础模型 #多模态 #虚拟空间 #机器人协作 #模型发布 #人工智能
+**标签**：基础模型 / 多模态 / 虚拟空间 / 机器人协作 / 模型发布 / 人工智能
 ---
 
 ### Claude Opus 4.5 Saves Tokens, White House Boosts AI-Powered Science, Amazon Exposes Nova 2 Pro Checkpoints, Small Models Solve Hard Puzzles
