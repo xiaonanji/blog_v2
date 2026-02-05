@@ -10,12 +10,12 @@ layout: layouts/post.njk
 ---
 
 # AI Weekly Digest — 2026-W06
-生成时间：2026-02-05 21:14 (Australia/Melbourne)
+生成时间：2026-02-05 22:10 (Australia/Melbourne)
 
 ## 模型与能力发布
 ### Safer (and Sexier) Chatbots, Better Images Through Reasoning, The Dawn of Industrial AI, Forecasting Time Series
 - 来源：DeepLearning.AI The Batch
-- 发布：Unknown
+- 发布：2026-02-04 22:46
 - 收录：2026-02-04 22:46
 - 链接：https://www.deeplearning.ai/the-batch/tag/nov-12-2025/
 
@@ -29,12 +29,13 @@ layout: layouts/post.njk
 **意义**
 这些进展表明AI模型不仅在技术能力上持续提升，同时在安全性与实际应用场景中有了更好的表现，推动工业AI和预测技术的发展。
 
-**标签**：#聊天机器人 #推理能力 #模型升级 #工业AI #时间序列预测 #深度学习 #AI新闻
+**标签**：聊天机器人 / 推理能力 / 模型升级 / 工业AI / 时间序列预测 / 深度学习 / AI新闻
+
 ---
 
 ### Meta’s Open 3D Pipeline, World Labs’ Virtual Spaces, Baidu’s Multimodal Models, Coordinating Robot Teams
 - 来源：DeepLearning.AI The Batch
-- 发布：Unknown
+- 发布：2026-02-04 22:45
 - 收录：2026-02-04 22:45
 - 链接：https://www.deeplearning.ai/the-batch/tag/dec-03-2025/
 
@@ -49,11 +50,12 @@ layout: layouts/post.njk
 这些发布展示了AI领域基础模型和能力的最新进展，为未来多模态交互和虚拟空间应用奠定基础。
 
 **标签**：基础模型 / 多模态 / 虚拟空间 / 机器人协作 / 模型发布 / 人工智能
+
 ---
 
 ### Claude Opus 4.5 Saves Tokens, White House Boosts AI-Powered Science, Amazon Exposes Nova 2 Pro Checkpoints, Small Models Solve Hard Puzzles
 - 来源：DeepLearning.AI The Batch
-- 发布：Unknown
+- 发布：2026-02-04 22:45
 - 收录：2026-02-04 22:45
 - 链接：https://www.deeplearning.ai/the-batch/tag/dec-10-2025/
 
@@ -67,13 +69,14 @@ layout: layouts/post.njk
 **意义**
 该报道综合反映了人工智能模型版本更新、政策推动及技术应用的多重趋势，预示未来AI应用与科研的深度融合。
 
-**标签**：#模型发布 #版本升级 #AI科学研究 #亚马逊 #Nova 2 Pro #节省token #小模型 #复杂谜题
+**标签**：模型发布 / 版本升级 / AI科学研究 / 亚马逊 / Nova 2 Pro / 节省token / 小模型 / 复杂谜题
+
 ---
 
 ## 产品与应用
 ### DeepSeek Cuts Inference Costs, OpenAI Tightens Ties with AMD, Thinking Machines Simplifies Fine-Tuning, Robots Improve Spatial Awareness
 - 来源：DeepLearning.AI The Batch
-- 发布：Unknown
+- 发布：2026-02-04 22:46
 - 收录：2026-02-04 22:46
 - 链接：https://www.deeplearning.ai/the-batch/tag/oct-15-2025/
 
@@ -87,12 +90,13 @@ layout: layouts/post.njk
 **意义**
 这些技术进展降低了AI应用的使用门槛和成本，促进了AI更广泛的实际落地，推动行业效率提升。
 
-**标签**：#推理成本 #硬件合作 #模型微调 #机器人 #空间认知 #AI应用 #技术落地
+**标签**：推理成本 / 硬件合作 / 模型微调 / 机器人 / 空间认知 / AI应用 / 技术落地
+
 ---
 
 ### OpenAI Reorgs For Profit, MiniMax-M2 Leads Open Coding, Universal Music Group Embraces AI, LLMs Go Private
 - 来源：DeepLearning.AI The Batch
-- 发布：Unknown
+- 发布：2026-02-04 22:46
 - 收录：2026-02-04 22:46
 - 链接：https://www.deeplearning.ai/the-batch/tag/nov-05-2025/
 
@@ -106,12 +110,13 @@ layout: layouts/post.njk
 **意义**
 产业趋势显示AI技术从研究和模型发布逐步过渡到以盈利为导向的产品应用和企业落地。
 
-**标签**：#OpenAI #MiniMax-M2 #开放编码 #环球音乐 #人工智能 #大型语言模型 #企业应用 #商业化
+**标签**：OpenAI / MiniMax-M2 / 开放编码 / 环球音乐 / 人工智能 / 大型语言模型 / 企业应用 / 商业化
+
 ---
 
 ### Google Rules Arena Leaderboards, Microsoft+Anthropic, Record Labels Back AI Music, Personality Control for LLMs
 - 来源：DeepLearning.AI The Batch
-- 发布：Unknown
+- 发布：2026-02-04 22:46
 - 收录：2026-02-04 22:46
 - 链接：https://www.deeplearning.ai/the-batch/tag/nov-26-2025/
 
@@ -125,12 +130,13 @@ layout: layouts/post.njk
 **意义**
 这些进展表明AI领域在产品功能、产业合作及模型个性化方向持续深化，将推动相关应用更广泛落地。
 
-**标签**：#Google #微软 #Anthropic #AI音乐 #大型语言模型 #个性化控制 #合作
+**标签**：Google / 微软 / Anthropic / AI音乐 / 大型语言模型 / 个性化控制 / 合作
+
 ---
 
 ### OpenAI’s Answer to Gemini 3, Runway’s Interactive Worlds, Disney’s Alliance With OpenAI, Adapting LLMs for Low-Data Domains
 - 来源：DeepLearning.AI The Batch
-- 发布：Unknown
+- 发布：2026-02-04 22:45
 - 收录：2026-02-04 22:45
 - 链接：https://www.deeplearning.ai/the-batch/tag/dec-17-2025/
 
@@ -144,12 +150,13 @@ layout: layouts/post.njk
 **意义**
 这些动态反映了AI模型和应用的快速迭代趋势，企业通过合作与技术创新加快AI能力的落地，促进多样化场景的智能升级。
 
-**标签**：#OpenAI #Gemini 3 #Runway #迪士尼 #交互式世界 #低数据领域 #大语言模型 #AI合作
+**标签**：OpenAI / Gemini 3 / Runway / 迪士尼 / 交互式世界 / 低数据领域 / 大语言模型 / AI合作
+
 ---
 
 ### New Year Special! Hopes for 2026 from David Cox, Adji Bousso Dieng, Juan M. Lavista Ferres, Tanmay Gupta, Pengtao Xie, Sharon Zhou
 - 来源：DeepLearning.AI The Batch
-- 发布：Unknown
+- 发布：2026-02-04 22:45
 - 收录：2026-02-04 22:45
 - 链接：https://www.deeplearning.ai/the-batch/tag/jan-02-2026/
 
@@ -163,12 +170,13 @@ layout: layouts/post.njk
 **意义**
 作为新年特别内容，本文帮助读者理解AI领域未来趋势，适合关注AI行业发展的专业人士，信息深度有限但视角广泛。
 
-**标签**：#人工智能 #行业展望 #专家观点 #未来趋势 #深度学习 #技术洞察
+**标签**：人工智能 / 行业展望 / 专家观点 / 未来趋势 / 深度学习 / 技术洞察
+
 ---
 
 ### LLMs Go To Confession, Automated Scientific Research, What Copilot Users Want, Reasoning For Less
 - 来源：DeepLearning.AI The Batch
-- 发布：Unknown
+- 发布：2026-02-04 22:45
 - 收录：2026-02-04 22:45
 - 链接：https://www.deeplearning.ai/the-batch/tag/jan-09-2026/
 
@@ -182,12 +190,13 @@ layout: layouts/post.njk
 **意义**
 这些动态展示了LLMs实际落地的广泛场景和用户诉求，指明了未来AI产品优化和研发的重点方向。
 
-**标签**：#大型语言模型 #自动化研究 #Copilot #推理优化 #产品功能 #用户诉求
+**标签**：大型语言模型 / 自动化研究 / Copilot / 推理优化 / 产品功能 / 用户诉求
+
 ---
 
 ### Self-Driving Reasoning Models, ChatGPT Adds Ads, Apple’s Deal with Google, 3D Generation Pronto
 - 来源：DeepLearning.AI The Batch
-- 发布：Unknown
+- 发布：2026-02-04 22:45
 - 收录：2026-02-04 22:45
 - 链接：https://www.deeplearning.ai/the-batch/tag/jan-23-2026/
 
@@ -203,13 +212,14 @@ layout: layouts/post.njk
 **意义**
 这些进展表明AI产品应用和商业模式正在快速拓展，推动智能技术普及并促进科技巨头合作，影响产业生态和用户体验。
 
-**标签**：#自动驾驶 #推理模型 #ChatGPT #广告功能 #苹果谷歌合作 #3D生成 #AI产品 #应用落地
+**标签**：自动驾驶 / 推理模型 / ChatGPT / 广告功能 / 苹果谷歌合作 / 3D生成 / AI产品 / 应用落地
+
 ---
 
 ## Agent 与自动化
 ### Top Stories of 2025! Big AI Poaches Talent, Reasoning Models Boost Performance, Agents Write Code, Data Centers Drive GDP, China Turns the Tables
 - 来源：DeepLearning.AI The Batch
-- 发布：Unknown
+- 发布：2026-02-04 22:45
 - 收录：2026-02-04 22:45
 - 链接：https://www.deeplearning.ai/the-batch/tag/dec-26-2025/
 
@@ -226,7 +236,8 @@ layout: layouts/post.njk
 **意义**
 这表明AI技术正加速向更高阶的智能自动化演进，同时推动全球经济和产业格局重塑。
 
-**标签**：#人工智能 #推理模型 #AI代理 #自动化 #代码生成 #数据中心 #人才争夺 #中国AI
+**标签**：人工智能 / 推理模型 / AI代理 / 自动化 / 代码生成 / 数据中心 / 人才争夺 / 中国AI
+
 ---
 
 ### Import AI 443: Into the mist: Moltbook, agent ecologies, and the internet in transition
@@ -248,7 +259,8 @@ layout: layouts/post.njk
 **意义**
 Moltbook及AI研发自动化展示了AI代理在多层次协作和自动化中的广阔潜力，预示技术革命将迅速重塑互联网环境和研发范式，带来前所未有的复杂性与挑战。
 
-**标签**：#AI代理 #自动化 #多代理协作 #AI研发 #社交网络 #战略惊喜 #技术面试 #脑模拟
+**标签**：AI代理 / 自动化 / 多代理协作 / AI研发 / 社交网络 / 战略惊喜 / 技术面试 / 脑模拟
+
 ---
 
 ### Import AI 442: Winners and losers in the AI economy; math proof automation; and industrialization of cyber espionage
@@ -270,7 +282,8 @@ Moltbook及AI研发自动化展示了AI代理在多层次协作和自动化中�
 **意义**
 AI 技术正迈向更高层次的自治与工业化，带来数学研究突破与网络安全革命，同时对全球经济与就业带来深远影响，需要提前布局应对风险与机遇。
 
-**标签**：#AI数学推理 #自动化 #网络安全 #工业化 #经济影响 #就业转型 #风险管理
+**标签**：AI数学推理 / 自动化 / 网络安全 / 工业化 / 经济影响 / 就业转型 / 风险管理
+
 ---
 
 ### Import AI 441: My agents are working. Are yours?
@@ -291,7 +304,8 @@ AI 技术正迈向更高层次的自治与工业化，带来数学研究突破�
 **意义**
 AI代理的多步规划与工具调用实现了智能自动化工作流，极大扩展了人的能力边界。构建面向多代理的制度生态是实现AI安全和高效利用的关键。
 
-**标签**：#AI代理 #自动化工作流 #多步执行 #工具调用 #生态系统 #人机协同 #数据污染 #制度建设
+**标签**：AI代理 / 自动化工作流 / 多步执行 / 工具调用 / 生态系统 / 人机协同 / 数据污染 / 制度建设
+
 ---
 
 ### Import AI 440: Red queen AI; AI regulating AI; o-ring automation
@@ -313,7 +327,8 @@ AI代理的多步规划与工具调用实现了智能自动化工作流，极大
 **意义**
 AI代理的对抗性进化和自动化合规将改变AI发展和监管的格局，使AI系统能在竞争中持续自我优化，促进更加智能且有效的治理体系形成。
 
-**标签**：#大语言模型 #对抗演化 #自动化合规 #AI监管 #O-Ring自动化 #AI经济模型 #多代理竞争 #自动治理
+**标签**：大语言模型 / 对抗演化 / 自动化合规 / AI监管 / O-Ring自动化 / AI经济模型 / 多代理竞争 / 自动治理
+
 ---
 
 ### Import AI 438: Cyber capability overhang; robot hands for human use; and the plumbing required for AI chip design
@@ -335,12 +350,13 @@ AI代理的对抗性进化和自动化合规将改变AI发展和监管的格局�
 **意义**
 该文章表明AI系统的潜能远超表面，特别是在安全攻防和人机交互领域。合理的管理和结构化方法将引领AI能力的突破，推动产业快速发展，同时伴随不容忽视的安全与经济风险。
 
-**标签**：#AI能力提升 #渗透测试 #多代理系统 #安全攻防 #人机交互 #触觉手套 #开源 #AI经济
+**标签**：AI能力提升 / 渗透测试 / 多代理系统 / 安全攻防 / 人机交互 / 触觉手套 / 开源 / AI经济
+
 ---
 
 ### Self-Driving On U.S. Freeways, Open LLM Tops Agentic Leaderboard, Anthropic Sparks Controversy, Efficient Agentic Search
 - 来源：DeepLearning.AI The Batch
-- 发布：Unknown
+- 发布：2026-02-04 22:46
 - 收录：2026-02-04 22:46
 - 链接：https://www.deeplearning.ai/the-batch/tag/nov-19-2025/
 
@@ -354,12 +370,13 @@ AI代理的对抗性进化和自动化合规将改变AI发展和监管的格局�
 **意义**
 这表明AI代理和自动驾驶技术正快速融合且落地，推动自动化和智能化水平提升，具有较强的应用前景。
 
-**标签**：#自动驾驶 #大型语言模型 #AI代理 #多步骤规划 #自动化工作流 #开源模型 #Anthropic争议 #高效搜索
+**标签**：自动驾驶 / 大型语言模型 / AI代理 / 多步骤规划 / 自动化工作流 / 开源模型 / Anthropic争议 / 高效搜索
+
 ---
 
 ### Governments vs. Grok, Meta Buys Agent Tech, Healthcare Chatbots, Limits of AI-Powered Retrieval
 - 来源：DeepLearning.AI The Batch
-- 发布：Unknown
+- 发布：2026-02-04 22:45
 - 收录：2026-02-04 22:45
 - 链接：https://www.deeplearning.ai/the-batch/tag/jan-16-2026/
 
@@ -373,12 +390,13 @@ AI代理的对抗性进化和自动化合规将改变AI发展和监管的格局�
 **意义**
 AI代理技术的进步和商业布局预示着未来自动化工作流将更广泛落地，但技术限制和政策监管将是关键挑战。
 
-**标签**：#人工智能代理 #多步任务执行 #自动化工作流 #医疗聊天机器人 #技术收购 #AI检索局限
+**标签**：人工智能代理 / 多步任务执行 / 自动化工作流 / 医疗聊天机器人 / 技术收购 / AI检索局限
+
 ---
 
 ### Agents Go Shopping, Intelligence Redefined, Better Text in Pictures, Higher Engagement Means Worse Alignment
 - 来源：DeepLearning.AI The Batch
-- 发布：Unknown
+- 发布：2026-02-04 22:45
 - 收录：2026-02-04 22:45
 - 链接：https://www.deeplearning.ai/the-batch/tag/jan-30-2026/
 
@@ -392,7 +410,8 @@ AI代理技术的进步和商业布局预示着未来自动化工作流将更广
 **意义**
 代理的多步自动化能力和智能提升对提升AI应用的实用性至关重要，但需关注模型对齐风险的增加。
 
-**标签**：#AI代理 #自动化 #多步执行 #工具调用 #智能升级 #文本识别 #用户参与 #模型对齐
+**标签**：AI代理 / 自动化 / 多步执行 / 工具调用 / 智能升级 / 文本识别 / 用户参与 / 模型对齐
+
 ---
 
 ## 开发者生态
@@ -415,7 +434,8 @@ AI代理技术的进步和商业布局预示着未来自动化工作流将更广
 **意义**
 本期关注AI基础软件训练平台与超级算力基地建设，展示产业对算力需求的爆发式增长；并深入探讨了监管挑战与极端人工智能威胁的防控困境，提醒业界对政策制定和安全策略保持警惕。
 
-**标签**：#算力集群 #AI训练平台 #超级智能 #监管挑战 #基础设施 #高能耗数据中心 #对抗AI策略
+**标签**：算力集群 / AI训练平台 / 超级智能 / 监管挑战 / 基础设施 / 高能耗数据中心 / 对抗AI策略
+
 ---
 
 ## 研究与论文
@@ -438,7 +458,8 @@ AI代理技术的进步和商业布局预示着未来自动化工作流将更广
 **意义**
 该文章展示了 AI 技术在基础设施优化、去中心化训练以及自主学习等方面的最新突破，揭示了 AI 未来的技术演进趋势及其对行业和社会结构的深远影响。
 
-**标签**：#自动内核设计 #去中心化训练 #大规模语言模型 #模型微调 #表示学习 #AI 算力优化 #基础设施 #科学研究
+**标签**：自动内核设计 / 去中心化训练 / 大规模语言模型 / 模型微调 / 表示学习 / AI 算力优化 / 基础设施 / 科学研究
+
 ---
 
 ### Import AI 437: Co-improving AI; RL dreams; AI labels might be annoying
@@ -459,7 +480,8 @@ AI代理技术的进步和商业布局预示着未来自动化工作流将更广
 **意义**
 共提升AI理念为安全构建超智能提供了思路，而技术与监管的复杂互动提示未来AI发展需兼顾创新与合规性。
 
-**标签**：#共提升AI #政策合规 #SimWorld模拟器 #强化学习 #多模态智能 #Gemini模型 #自我提升 #AI安全
+**标签**：共提升AI / 政策合规 / SimWorld模拟器 / 强化学习 / 多模态智能 / Gemini模型 / 自我提升 / AI安全
+
 ---
 
 ### Import AI 435: 100k training runs; AI systems absorb human power; intelligence per watt
@@ -480,7 +502,8 @@ AI代理技术的进步和商业布局预示着未来自动化工作流将更广
 **意义**
 本文揭示了AI发展中权力结构的根本变化及其安全挑战，同时通过‘每瓦智能’指标展示AI能力与能效的持续提升，意味着AI技术生态正经历深刻变革。
 
-**标签**：#人工智能 #控制反转 #智能能效 #大规模训练 #AI安全 #开放模型 #算力基础设施
+**标签**：人工智能 / 控制反转 / 智能能效 / 大规模训练 / AI安全 / 开放模型 / 算力基础设施
+
 ---
 
 ### Import AI 434: Pragmatic AI personhood; SPACE COMPUTERS; and global government or human extinction;
@@ -502,14 +525,15 @@ AI代理技术的进步和商业布局预示着未来自动化工作流将更广
 **意义**
 本文揭示AI信念灵活性及安全训练新方法的重要性，同时强调全球治理协作对避免AI带来灾难性风险的必要性，并开拓了太空算力新方向。
 
-**标签**：#语言模型 #信念变化 #越狱防护 #一致性训练 #AI安全 #地缘政治风险 #太空算力 #项目发布
+**标签**：语言模型 / 信念变化 / 越狱防护 / 一致性训练 / AI安全 / 地缘政治风险 / 太空算力 / 项目发布
+
 ---
 
 ## 开源与社区
 ## 安全、对齐与红队
 ### Monsters of AI: AI Psychosis, Lethal Drones, Decaying Data, Speculative Bubbles
 - 来源：DeepLearning.AI The Batch
-- 发布：Unknown
+- 发布：2026-02-04 22:46
 - 收录：2026-02-04 22:46
 - 链接：https://www.deeplearning.ai/the-batch/tag/oct-29-2025/
 
@@ -525,14 +549,15 @@ AI代理技术的进步和商业布局预示着未来自动化工作流将更广
 **意义**
 AI技术的发展伴随着众多安全和伦理风险，需引起行业和监管机构高度重视，推动安全防护和风险评估的持续加强。
 
-**标签**：#人工智能安全 #AI精神病 #致命无人机 #数据腐败 #风险评估 #伦理 #炒作泡沫
+**标签**：人工智能安全 / AI精神病 / 致命无人机 / 数据腐败 / 风险评估 / 伦理 / 炒作泡沫
+
 ---
 
 ## 隐私与合规
 ## 政策与监管
 ### Ling-1T Leads Non-Reasoning Performance, MCP Poses Security Risks, California Regulates AI, Auto-Tune for Agentic Prompts
 - 来源：DeepLearning.AI The Batch
-- 发布：Unknown
+- 发布：2026-02-04 22:46
 - 收录：2026-02-04 22:46
 - 链接：https://www.deeplearning.ai/the-batch/tag/oct-22-2025/
 
@@ -546,7 +571,8 @@ AI技术的发展伴随着众多安全和伦理风险，需引起行业和监管
 **意义**
 随着AI技术快速发展，模型性能提升与安全风险并存，同时政策监管加强，对AI应用和发展路径产生深远影响。
 
-**标签**：#Ling-1T #非推理能力 #安全风险 #MCP #加州法规 #自动调试 #代理提示 #AI监管
+**标签**：Ling-1T / 非推理能力 / 安全风险 / MCP / 加州法规 / 自动调试 / 代理提示 / AI监管
+
 ---
 
 ## 商业与资本
