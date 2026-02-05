@@ -72,4 +72,4 @@ layout: layouts/post.njk
 *生成时间：2026-02-05*
 
 ## 参考
-- [AI Weekly Digest — 2026-W06](weekly_news/ai_news_2026-W06.md)
+- [AI Weekly Digest — 2026-W06]({{ "/posts/weekly_news/ai_news_2026-W06/" | url }})
