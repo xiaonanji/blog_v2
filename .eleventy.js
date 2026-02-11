@@ -234,6 +234,18 @@ module.exports = function (eleventyConfig) {
     permalinkSymbol: "#",
   });
   eleventyConfig.setLibrary("md", markdownLibrary);
+  eleventyConfig.addPairedShortcode("annotate", (content, note) => {
+    const normalizedContent = (content || "").trim();
+    const normalizedNote = (note || "").trim();
+    const renderedContent = markdownLibrary.renderInline(normalizedContent);
+    const renderedNote = markdownLibrary.renderInline(normalizedNote);
+    return `
+<div class="annotation">
+  <div class="annotation__text"><span class="annotation__mark">${renderedContent}</span></div>
+  <aside class="annotation__note">${renderedNote}</aside>
+</div>
+`;
+  });
 
   // After the build touch any file in the test directory to do a test run.
   eleventyConfig.on("afterBuild", async () => {

@@ -303,7 +303,8 @@ abbr[title] {
 }
 b,
 strong {
-  font-weight: 700;
+  font-weight: 400;
+  color: var(--primary);
 }
 code,
 kbd,
@@ -994,6 +995,59 @@ blockquote footer {
   font-size: 90%;
   text-align: start;
 }
+.annotation {
+  --note-width: 16rem;
+  --highlight: #ffe9a3;
+  --note-bg: #111111;
+  --note-border: #f9c412;
+  position: relative;
+  align-items: start;
+  margin: 1.5em 0;
+}
+.annotation__text {
+  margin: 0;
+}
+.annotation__mark {
+  background: linear-gradient(
+    120deg,
+    rgba(255, 233, 163, 0.22) 0%,
+    rgba(255, 233, 163, 0.16) 100%
+  );
+  color: inherit;
+  padding: 0.08em 0.18em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.annotation__note {
+  border-left: 2px solid var(--note-border);
+  padding: 0.25rem 0 0.25rem 0.9rem;
+  margin: 0;
+  font-size: 0.95em;
+  line-height: 1.5;
+  color: #ddd;
+  background: linear-gradient(90deg, rgba(249, 196, 18, 0.12), transparent 70%);
+}
+@media (min-width: 64em) {
+  .annotation {
+    overflow: visible;
+  }
+  .annotation__note {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: var(--note-width);
+    margin-left: 1.25rem;
+  }
+}
+@media (max-width: 63.9375em) {
+  .annotation__note {
+    border-left: none;
+    border-top: 2px solid var(--note-border);
+    padding: 0.75rem 0 0 0;
+    margin-top: 0.75rem;
+    background: none;
+  }
+}
 img,
 video {
   height: auto;
@@ -1140,6 +1194,42 @@ article h1 {
   font-size: 2rem;
   line-height: 1.3;
   margin-bottom: 1rem;
+}
+article h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.5rem;
+  line-height: 1.4;
+  color: var(--primary);
+  margin: 1.6rem 0 0.8rem;
+}
+article h2::before {
+  content: "";
+  display: block;
+  width: 0.28rem;
+  height: 1.4em;
+  background: var(--primary);
+  border-radius: 2px;
+  flex: 0 0 auto;
+}
+article h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  color: var(--primary);
+  margin: 1.2rem 0 0.7rem;
+}
+article h3::before {
+  content: "";
+  display: block;
+  width: 0.22rem;
+  height: 1.2em;
+  background: var(--primary);
+  border-radius: 2px;
+  flex: 0 0 auto;
 }
 @media (min-width: 600px) {
   article h1 {
