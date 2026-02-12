@@ -1,4 +1,4 @@
-<ul>
+<ul class="posts-list">
 {% for post in postslist | reverse %}
   <li>
     <a href="{{ post.url | url }}">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</a>

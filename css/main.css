@@ -1,7 +1,7 @@
 /* Color customization */
 :root {
-  --primary: #f9c412;
-  --primary-dark: #e7bf60;
+  --primary: #e0c05a;
+  --primary-dark: #c9a54e;
 }
 
 .test-dead-code-elimination-sentinel {
@@ -453,7 +453,7 @@ p,
 pre,
 ul {
   font-size: 1em;
-  line-height: 1.5;
+  line-height: 1.7;
 }
 ol,
 p,
@@ -495,7 +495,7 @@ p,
 pre,
 ul {
   font-size: 1rem;
-  line-height: 1.6;
+  line-height: 1.75;
 }
 ol,
 p,
@@ -543,7 +543,7 @@ ul {
   pre,
   ul {
     font-size: 1.1rem;
-    line-height: 1.6;
+    line-height: 1.75;
   }
   ol,
   p,
@@ -592,7 +592,7 @@ ul {
   pre,
   ul {
     font-size: 1.2rem;
-    line-height: 1.6;
+    line-height: 1.75;
   }
   ol,
   p,
@@ -660,6 +660,7 @@ h4,
 h5,
 h6 {
   font-family: var(--font-family);
+  color: #e3e3e3;
 }
 h2,
 h4,
@@ -667,7 +668,7 @@ h6 {
   font-style: italic;
 }
 a {
-  color: #f9c412;
+  color: var(--primary);
   text-decoration: none;
 }
 a:hover {
@@ -681,7 +682,7 @@ a:hover {
 }
 .post-tags .tag {
   display: inline-block;
-  background: #f9c412;
+  background: var(--primary);
   color: #181818;
   padding: 0.1em 0.5em;
   border-radius: 0.2em;
@@ -690,8 +691,43 @@ a:hover {
   text-decoration: none;
 }
 .post-tags .tag:hover {
-  background: #ba9005;
+  background: var(--primary-dark);
   text-decoration: none;
+}
+.posts-list {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+}
+.posts-list li {
+  display: flex;
+  gap: 0.75rem;
+  align-items: baseline;
+  flex-wrap: wrap;
+  margin: 0.5rem 0;
+}
+.posts-list li a {
+  flex: 1 1 auto;
+}
+.posts-list time {
+  color: #a0a0a0;
+  font-size: 90%;
+  white-space: nowrap;
+}
+.post-tag {
+  display: inline-block;
+  border: 1px solid #4a4a4a;
+  background: #1f1f1f;
+  color: #d6d6d6;
+  padding: 0.2em 0.6em;
+  border-radius: 0.2em;
+  margin: 0 0.4em 0.4em 0;
+  font-size: 85%;
+  text-decoration: none;
+}
+.post-tag:hover {
+  border-color: var(--primary);
+  background: #262626;
 }
 small {
   color: #ccc;
@@ -870,7 +906,7 @@ video {
 body {
   font-family: var(--font-family);
   background: #181818;
-  color: #eee;
+  color: #d6d6d6;
 }
 section {
   margin-left: auto;
