@@ -6,9 +6,6 @@ templateClass: tmpl-post
 
 
 {% block extraArticleHeader %}
-  <aside>
-    {{ content | readingTime }} min read.
-  </aside>
   {% set rawTags = tags or [] %}
   {% set cleanTags = [] %}
   {% for tag in rawTags %}
@@ -24,6 +21,9 @@ templateClass: tmpl-post
       {% endfor %}
     </p>
   {% endif %}
+  <aside>
+    {{ content | readingTime }} min read.
+  </aside>
 {% endblock %}
 
 {% set shareUrl = metadata.url + page.url %}
