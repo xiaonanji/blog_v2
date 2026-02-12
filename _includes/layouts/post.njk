@@ -9,6 +9,21 @@ templateClass: tmpl-post
   <aside>
     {{ content | readingTime }} min read.
   </aside>
+  {% set rawTags = tags or [] %}
+  {% set cleanTags = [] %}
+  {% for tag in rawTags %}
+    {% if tag != "all" and tag != "nav" and tag != "post" and tag != "posts" and tag != "tagList" %}
+      {% set cleanTags = cleanTags.concat([tag]) %}
+    {% endif %}
+  {% endfor %}
+  {% if cleanTags.length %}
+    <p class="post-tags">
+      <span>Tags:</span>
+      {% for tag in cleanTags %}
+        <a class="tag" href="/tags/{{ tag | slugify }}/">{{ tag }}</a>
+      {% endfor %}
+    </p>
+  {% endif %}
 {% endblock %}
 
 {% set shareUrl = metadata.url + page.url %}
