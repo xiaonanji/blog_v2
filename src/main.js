@@ -254,6 +254,82 @@ if (!initReadingProgress()) {
   );
 }
 
+function layoutAnnotationNotes() {
+  var annotations = Array.from(document.querySelectorAll(".annotation"));
+  if (!annotations.length) {
+    return;
+  }
+
+  annotations.forEach((annotation) => {
+    var note = annotation.querySelector(".annotation__note");
+    if (!note) {
+      return;
+    }
+    note.style.setProperty("--annotation-note-offset", "0px");
+    annotation.style.minHeight = "";
+  });
+
+  if (!window.matchMedia("(min-width: 64em)").matches) {
+    return;
+  }
+
+  var gap = 12;
+  var previousBottom = -Infinity;
+  annotations.forEach((annotation) => {
+    var note = annotation.querySelector(".annotation__note");
+    if (!note) {
+      return;
+    }
+
+    var annotationTop = window.scrollY + annotation.getBoundingClientRect().top;
+    var noteHeight = note.getBoundingClientRect().height;
+    var text = annotation.querySelector(".annotation__text");
+    var textHeight = text ? text.getBoundingClientRect().height : 0;
+
+    var minTop = previousBottom + gap;
+    var offset = annotationTop < minTop ? minTop - annotationTop : 0;
+
+    note.style.setProperty("--annotation-note-offset", `${offset}px`);
+    var requiredHeight = Math.ceil(offset + noteHeight);
+    if (requiredHeight > textHeight) {
+      annotation.style.minHeight = `${requiredHeight}px`;
+    }
+
+    previousBottom = annotationTop + offset + noteHeight;
+  });
+}
+
+function initAnnotationLayout() {
+  if (!document.querySelector(".annotation")) {
+    return;
+  }
+
+  var queued = false;
+  function queueLayout() {
+    if (queued) {
+      return;
+    }
+    queued = true;
+    requestAnimationFrame(() => {
+      queued = false;
+      layoutAnnotationNotes();
+    });
+  }
+
+  addEventListener("resize", queueLayout, { passive: true });
+  addEventListener("load", queueLayout, { once: true });
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(queueLayout).catch(() => {});
+  }
+  if (window.ResizeObserver) {
+    var target = document.querySelector("main article") || document.body;
+    new ResizeObserver(queueLayout).observe(target);
+  }
+  queueLayout();
+}
+
+initAnnotationLayout();
+
 function expose(name, fn) {
   exposed[name] = fn;
 }

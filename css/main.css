@@ -1093,6 +1093,7 @@ blockquote footer {
     left: 100%;
     width: var(--note-width);
     margin-left: 1.25rem;
+    transform: translateY(var(--annotation-note-offset, 0px));
   }
 }
 @media (max-width: 63.9375em) {
