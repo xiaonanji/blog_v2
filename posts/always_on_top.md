@@ -39,3 +39,5 @@ layout: layouts/post.njk
 > 别把自己当回事，要把自己做的事当回事。你是谁不重要，重要的是把事情做好。做出成绩，别人自然对你刮目相看。
 
 > 不要再浪费一秒钟的时间放在跟提升自己生命成长无关紧要的事情上。把时间用在自我成长上。专注力越强，内心越平静，事情做的越完美。
+
+> Top tier men only do six things every day: workout, be happy, sleep, eat clean food, drink coffee and make money. They don't care about meaningless socializing. They don't get caught up in emotions and don't get bogged down in internal conflix. They focus on only three things: has their body become stronger? Has their level improved? Has their income increased? Powerful people are always simple and always focused. They are only responsible for results, not distracted by trivial matters. Weak people on the other hand do the opposite: they worry about saving face all day long, afraid of failure and being led by their emotions, aiming endlessly and in the end they grasp nothing. Remember these 3 behaviours that quietly destroy you: wanting to join in the fun, wasting attention, blindly following trends, losing judgement, worrying about trivial matters consuming energy. Men truly turn their life around only do two things: continuously become stronger and make money like crazy.
