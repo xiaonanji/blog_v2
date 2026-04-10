@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:www.anthropic.com)"
+      "WebFetch(domain:www.anthropic.com)",
+      "mcp__my-server__mempalace_search",
+      "mcp__my-server__mempalace_add_drawer"
     ]
   }
 }
