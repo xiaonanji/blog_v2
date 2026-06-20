@@ -7,4 +7,4 @@ tags:
 layout: layouts/post.njk
 ---
 
-<iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=1WWSy&width=670&height=475" scrolling="no" frameborder="0" style="overflow:hidden; width:670px; height:525px;" allowTransparency="true" loading="lazy"></iframe>
+<iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=1WWSy&width=900&height=638" scrolling="no" frameborder="0" style="overflow:hidden; width:900px; height:638px;" allowTransparency="true" loading="lazy"></iframe>
