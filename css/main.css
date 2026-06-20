@@ -17,6 +17,16 @@
   border: 0;
 }
 
+.fred-chart {
+  display: block;
+  width: min(900px, calc(100vw - 3em));
+  height: auto;
+  aspect-ratio: 900 / 638;
+  margin: 1.5em 0 1.5em 50%;
+  transform: translateX(-50%);
+  border: 0;
+}
+
 
 /*
   Make image rasterization lazy. This means that e.g. the cost of the
