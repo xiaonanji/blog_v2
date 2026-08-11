@@ -1,0 +1,182 @@
+<!doctype html><html domain=seanji.net lang=en><meta charset=utf-8><meta content="width=device-width,initial-scale=1" name=viewport><link href="/img/favicon/favicon-192x192.png?hash=108d534956" rel=icon type=image/png><meta content=#f9c412 name=theme-color><meta content="max-snippet:-1, max-image-preview: large, max-video-preview: -1" name=robots><title>Clawdbot是如何管理记忆的</title><meta content=Clawdbot是如何管理记忆的 property=og:title><meta content=大模型是没有记忆的。对于大模型而已，你发给它的每条信息本身的内容就是它下一个回复的所有输入。你和它的历史聊天信息大模型本身是不存储的。当然，这样的大模型可以完成的任务是很局限的。因此我们必须让大模型具有记忆，能够和我们实现对话，理解上下文。记忆管理就是每个agent需要精心设计的... name=description><meta content=大模型是没有记忆的。对于大模型而已，你发给它的每条信息本身的内容就是它下一个回复的所有输入。你和它的历史聊天信息大模型本身是不存储的。当然，这样的大模型可以完成的任务是很局限的。因此我们必须让大模型具有记忆，能够和我们实现对话，理解上下文。记忆管理就是每个agent需要精心设计的... property=og:description><meta content=summary_large_image name=twitter:card><meta content=@update_me name=twitter:site><meta content=@update_me name=twitter:creator><link href=https://blog.seanji.net/posts/20260223/ rel=canonical><meta content=no-referrer-when-downgrade name=referrer><link href=/feed/feed.xml rel=alternate type=application/atom+xml title="Sean's Blog"><link href=/ rel=preconnect crossorigin><link href=/fonts/Inter-3.19.var.woff2 rel=preload type=font/woff2 as=font crossorigin><script async defer src="/js/min.js?hash=10224ba265"></script><script csp-hash>if (/Mac OS X/.test(navigator.userAgent))document.documentElement.classList.add('apple')</script><style>:root{--primary: #e0c05a;--primary-dark: #c9a54e;--main-width: calc(100vw - 3em)}main img{content-visibility:auto}article *{scroll-margin-top:50px}header nav{position:fixed;padding:.375em 1.5em;background:rgba(255,255,255,.9);font-weight:200;text-align:right}@media (min-width:37.5em){:root{--main-width: calc(37.5em - 3em)}}dialog,share-widget{position:fixed;opacity:.9}share-widget{right:20px;bottom:20px}share-widget div{width:30px;height:30px;background-image:url(/img/share.svg);background-repeat:no-repeat;background-position:center}.apple share-widget div{background-image:url(/img/share-apple.svg)}body,share-widget button{margin:0}share-widget button:active{transform:scale(1.2)}dialog{background-color:#8dff80;z-index:1000}header aside{font-style:italic}#nav{z-index:2;position:relative}#reading-progress,header nav{z-index:1;width:100vw;left:0;top:0}#reading-progress{background-color:var(--primary);position:absolute;bottom:0;transform:translate(-100vw,0);will-change:transform;pointer-events:none}#posts li{margin-bottom:.5em}@font-face{font-display:optional;font-family:"Inter UI";font-weight:100 900;font-style:oblique 0deg 10deg;src:url(/fonts/Inter-3.19.var.woff2) format("woff2")}button,html{line-height:1.15}html{-webkit-text-size-adjust:100%;font-family:Inter UI,sans-serif;--font-family: Inter UI, sans-serif}h1{font-size:3em;line-height:1.25;margin:.67em 0 .5em;font-size:2.074rem}a,strong{color:var(--primary)}a{background-color:transparent;text-decoration:none}strong{font-weight:400}img{border-style:none;max-width:100%;height:auto;margin:0 auto}button{font-family:inherit;font-size:100%;overflow:visible;text-transform:none}[type=button],button{-webkit-appearance:button}[type=button]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{-webkit-appearance:none}summary{display:list-item}h2{font-size:2.5em;line-height:1.2;margin-bottom:.6em}h3{font-size:2em;line-height:1.125;margin-bottom:.75em;font-size:1.4rem}h4{font-size:1.5em;margin-bottom:1em;line-height:1.5em}body,ol,p,pre,ul{font-size:1em}ol,p,pre,ul{margin-bottom:1.5em}h1,h2,h3,h4{line-height:2.4rem;margin-bottom:1.36rem}h2{font-size:1.728rem}h3,h4{line-height:1.6rem}h4{font-size:1.2rem}body,ol,p,pre,ul{font-size:1rem;line-height:1.75}ol,p,pre,ul{margin-bottom:1.36rem}@media (min-width:600px){h1{font-size:4.3978rem;line-height:4.4rem}h2{font-size:3.1097rem;line-height:3.52rem}h3{font-size:2.1989rem;line-height:2.64rem}h4{font-size:1.5554rem;line-height:1.76rem}body,ol,p,pre,ul{font-size:1.1rem;line-height:1.75}h1,h2,h3,h4,ol,p,pre,ul{margin-bottom:1.496rem}}@media (min-width:1200px){h1{font-size:6.0756rem;line-height:6.72rem}h2{font-size:4.05rem;line-height:4.8rem}h3{font-size:2.7rem;line-height:2.88rem}h4{font-size:1.8rem;line-height:1.92rem}body,ol,p,pre,ul{font-size:1.2rem;line-height:1.75}h1,h2,h3,h4,ol,p,pre,ul{margin-bottom:1.632rem}}code,pre{overflow-x:auto}pre{font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace}pre:has(code:not([class])){background:#2d2d2d}pre code:not([class]){color:#ccc;padding:0;overflow-x:scroll}button,code{border-radius:.3em}code{color:#e2777a;padding:0 .3em;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:90%;background:#2d2d2d}h1,h2,h3,h4{font-family:var(--font-family);color:#e3e3e3}h2,h4{font-style:italic}a:hover{text-decoration:underline}.post-tags{margin:.5rem 0 0}.post-tags>span{margin-right:.5rem}.post-tags .tag{display:inline-block;background:var(--primary);color:#181818;padding:.1em .5em;border-radius:.2em;margin:0 .4em .3em 0;font-size:85%;text-decoration:none}.post-tags .tag:hover{background:var(--primary-dark);text-decoration:none}button{max-width:100%;background:#f2f2f2;color:#191919;cursor:pointer;display:inline-block;padding:.75em 1.5em;text-align:center;margin:0 .75em 1.5em 0}button:hover{background:#d9d9d9;color:#000}button:not([disabled]){background:#f9c412;color:#181818;background:var(--primary)}button:not([disabled]):hover{background:#ba9005;color:#000;background:var(--primary-dark)}*{border:0;box-sizing:border-box}body,header nav a{font-family:var(--font-family)}body{background:#181818;color:#d6d6d6}header{padding:4.5em 1.5em 3em;width:37.5em;margin:0 auto;text-align:center;max-width:100%;display:flex;align-items:center;flex-direction:column}header p,ol,ul{margin-top:0}header nav h1{float:left;font-size:inherit;line-height:inherit;margin:0;text-align:left}header nav a{font-weight:700;text-decoration:none;color:#181818;margin-left:1.5em}header nav a:first-of-type{margin-left:auto}header nav a:last-of-type{margin-right:1.5em}main{max-width:70rem;margin:0 auto;border-top:.5px solid #ccc}footer{background:rgba(0,0,0,.8);color:#fff;padding:3em;text-align:center}footer>*{margin:1.5em}footer nav a img{vertical-align:middle}footer nav,footer p{font-size:90%}article{max-width:100%;padding:1.5em;width:37.5em;margin:0 auto}li ol,li ul{margin-bottom:0}blockquote{border-left:1px solid #f9c412;padding:0 1.5em;margin:1.5em 0 1.5em 1.5em;border-left:1px solid var(--primary)}blockquote footer{background:0 0;display:block;color:#ccc;padding:.75em 0;font-size:90%;text-align:start}.annotation{--note-width: 16rem;--note-border: #f9c412;position:relative;align-items:start;margin:1.5em 0}.annotation__text{margin:0}.annotation__mark{background:linear-gradient(120deg,rgba(255,233,163,.22) 0,rgba(255,233,163,.16) 100%);color:inherit;padding:.08em .18em;box-decoration-break:clone;-webkit-box-decoration-break:clone}.annotation__note{border-left:2px solid var(--note-border);padding:.25rem 0 .25rem .9rem;margin:0;font-size:.95em;line-height:1.5;color:#ddd;background:linear-gradient(90deg,rgba(249,196,18,.12),transparent 70%)}@media (min-width:64em){.annotation{overflow:visible}.annotation__note{position:absolute;top:0;left:100%;width:var(--note-width);margin-left:1.25rem;transform:translateY(var(--annotation-note-offset, 0px))}}@media (max-width:63.9375em){.annotation__note{border-left:none;border-top:2px solid var(--note-border);padding:.75rem 0 0;margin-top:.75rem;background:0 0}}code[class*=language-],pre[class*=language-]{color:#ccc;background:0 0;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-]{padding:0}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:#2d2d2d}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.comment,.token.doctype{color:#999}.token.tag{color:#e2777a}.token.property{color:#f8c555}.token.url{color:#67cdcc}.token.inserted{color:green}article h1{font-size:2rem;line-height:1.3;margin-bottom:1rem}article h2,article h3{display:flex;align-items:center;gap:.75rem;font-size:1.5rem;line-height:1.4;color:var(--primary);margin:1.6rem 0 .8rem}article h2::before,article h3::before{content:"";display:block;width:.28rem;height:1.4em;background:var(--primary);border-radius:2px;flex:0 0 auto}article h3{gap:.65rem;font-size:1.25rem;margin:1.2rem 0 .7rem}article h3::before{width:.22rem;height:1.2em}@media (min-width:600px){article h1{font-size:2.4rem}}@media (min-width:1200px){article h1{font-size:2.8rem}}</style><header><nav><div id=nav><h1><a href=/ title=Homepage>Sean's Blog</a></h1><a href=/about/ >About</a></div><div id=reading-progress aria-hidden=true></div></nav><h3>Clawdbot是如何管理记忆的</h3><p>Published <time datetime=2026-02-23>23 Feb 2026</time><p class=post-tags><span>Tags:</span> <a href=/tags/ai/ class=tag>AI</a><aside>27 min read.</aside><dialog id=message></dialog></header><main><article><p>大模型是没有记忆的。对于大模型而已，你发给它的每条信息本身的内容就是它下一个回复的所有输入。你和它的历史聊天信息大模型本身是不存储的。当然，这样的大模型可以完成的任务是很局限的。因此我们必须让大模型具有记忆，能够和我们实现对话，理解上下文。记忆管理就是每个agent需要精心设计的。<p>这篇文章大致说说OpenClawd（Moltbot或Clawdbot）是如何实现记忆功能的。总的来说，OpenClawd的记忆实现并不复杂，也没有太多创新，但因为它的实现方式和ChatGPT或Claude很不一样，算是开宗立派的打法，因此学习一下还是很有必要的。我认为OpenClawd最重要的创新就是让记忆回到每个用户手上，完全透明，完全可配置。用户如果需要，可以直接修改记忆本身，或者通过参数调整记忆的工作方式。这一点和ChatGPT或Claude这种把记忆限制在服务端，对用户不透明的做法更民主。说到底，智慧可以属于大厂，但记忆和上下文应该属于用户。我希望OpenClawd开创的记忆回归用户的做法未来会变得更加普遍。<p>从头说起。我们说了用户的每次对话内容就是模型回复的所有输入信息，那么我们需要了解我们给大模型发的每个信息具体有什么内容。你可能会反问我，我写的输入信息不就是内容本身了吗？其实远远不止。你可能只写了短短一句话：<strong>告诉我今天天气如何</strong>，但大模型收到的信息可能远远多于你这句话的内容。agent在接收到你的信息之后，会自动添加上很多额外信息，再将所有这些信息一起发给大模型。具体而言，每个对话请求包含一下4个层次的信息：<pre><code>[0] 系统提示(System Prompt)
+[1] 项目上下文(Project Cotnext, bootstrap files: AGENTS.md, SOUL.md, etc)
+[2] 历史对话(messages, tool calls, compaction summaries)
+[3] 用户本次发送的信息
+</code></pre><p>其中系统提示词定义了agent的基本背景和角色。项目上下文从一些markdown文件中抽取并添加到每个对话中。用户可以很容易地修改这些markdown文件，从而控制项目上下文的内容。这些markdown文件包括：<ul><li><a href=http://AGENTS.md>AGENTS.md</a>: Agent的基本说明。如果设置了多个Agents，这里会分别说明每个Agent的基础信息<li><a href=http://SOUL.md>SOUL.md</a>: Agent的个性，决定Agent回复的语气，比如俏皮的，严肃的，正式的等<li><a href=http://USER.md>USER.md</a>: 用户的基本信息<li><a href=http://TOOLS.md>TOOLS.md</a>: 外部工具的使用说明</ul><h2 id=%E4%B8%8A%E4%B8%8B%E6%96%87%E5%92%8C%E8%AE%B0%E5%BF%86%E7%9A%84%E5%8C%BA%E5%88%AB>上下文和记忆的区别 <a href=#%E4%B8%8A%E4%B8%8B%E6%96%87%E5%92%8C%E8%AE%B0%E5%BF%86%E7%9A%84%E5%8C%BA%E5%88%AB class=direct-link>#</a></h2><p>上下文和记忆是有区别的。<p>上下文是指你向大模型提交的一次对话信息中，除了你直接提供的信息之外的全部内容。在Clawdbot中，<strong>上下文 = 系统提示 + 对话历史 + 工具调用结果 + 附件</strong>。<p>上下文具有以下特点：<ul><li>生命期极短：上下文只存在于一次对话的提交内容中。不同对话提交内容的上下文都是不一样的。有时内容会重复，但每次向大模型提交信息，上下文都需要重新生成。因此我们说一个上下文只存在于一次对话的输入信息中<li>大小受限：任何一个大模型都有明确的上下文窗口大小，即每次对话提交的信息的最大token数量<li>成本很高：每个提交给大模型的token都需要花钱，token越多开销越大</ul><p>记忆则不同于上下文。记忆是保存在硬盘中的：<strong>记忆 = <a href=http://MEMORY.md>MEMORY.md</a> memory/*.md + Session Transcripts</strong>。<p>记忆的特点：<ul><li>持续性：记忆可以持续保存，不受对话，重启或时长限制。重要的记忆甚至可以永久保留<li>大小不受限：记忆的大小理论上只受限于磁盘大小<li>几乎没有成本：保存记忆本身和大模型无关，所以生成记忆不消耗token<li>可检索：记忆可以被检索，关键词或语义检索都可以</ul><h2 id=clawdbot%E5%A6%82%E4%BD%95%E8%AE%BF%E9%97%AE%E8%AE%B0%E5%BF%86>Clawdbot如何访问记忆 <a href=#clawdbot%E5%A6%82%E4%BD%95%E8%AE%BF%E9%97%AE%E8%AE%B0%E5%BF%86 class=direct-link>#</a></h2><p>在Clawdbot中，agent通过两个特殊工具访问记忆。第一个工具是<code>memory_search</code>。<p>这个工具的目的是在记忆文件中找到相关的记忆。中Clawdbot中，这个工具的调用方式如下：<pre><code>{
+  "name": "memory_search",
+  "description": "Mandatory recall step: semantically search MEMORY.md + memory/*.md before answering questions about prior work, decisions, dates, people, preferences, or todos",
+  "parameters": {
+    "query": "What did we decide about the API?",
+    "maxResults": 6,
+    "minScore": 0.35
+  }
+}
+</code></pre><p>其返回可以是这样的：<pre><code>{
+  "results": [
+    {
+      "path": "memory/2026-01-20.md",
+      "startLine": 45,
+      "endLine": 52,
+      "score": 0.87,
+      "snippet": "## API Discussion\nDecided to use REST over GraphQL for simplicity...",
+      "source": "memory"
+    }
+  ],
+  "provider": "openai",
+  "model": "text-embedding-3-small"
+}
+</code></pre><p>第二个工具是：<code>memory_get</code><p>其功能是读取特定记忆的内容。这个工具一般是基于<code>memory_search</code>的结果进一步操作的：<pre><code>{
+  "name": "memory_get",
+  "description": "Read specific lines from a memory file after memory_search",
+  "parameters": {
+    "path": "memory/2026-01-20.md",
+    "from": 45,
+    "lines": 15
+  }
+}
+</code></pre><p>其返回结果可能是：<pre><code>{
+  "path": "memory/2026-01-20.md",
+  "text": "## API Discussion\n\nMet with the team to discuss API architecture.\n\n### Decision\nWe chose REST over GraphQL for the following reasons:\n1. Simpler to implement\n2. Better caching\n3. Team familiarity\n\n### Endpoints\n- GET /users\n- POST /auth/login\n- GET /projects/:id"
+}
+</code></pre><h2 id=clawdbot%E5%A6%82%E4%BD%95%E7%94%9F%E6%88%90%E8%AE%B0%E5%BF%86>Clawdbot如何生成记忆 <a href=#clawdbot%E5%A6%82%E4%BD%95%E7%94%9F%E6%88%90%E8%AE%B0%E5%BF%86 class=direct-link>#</a></h2><p>并不存在类似<code>memory_write</code>这样的特定工具。Clawdbot直接使用<code>write</code>和<code>edit</code>这样的通用文件操作工具写入记忆。记忆本身就是简单的markdown格式，因此你可以很方便地编辑记忆文件。每次编辑完毕后，记忆索引会自动更新。<p>这里最重要的决策是记忆保存到哪里。这个决策是在AGENTS.md文件中定义好的：<ul><li>每天的记忆，或者是用户提示特别要记住的内容：保存到<code>memory/YYYY-MM-DD.md</code>文件中<li>持久的事实点、做过的决策点、用户倾向：这类内容被保存到<code>MEMORY.md</code>文件中<li>学到的经验教训：保存到<code>AGENTS.md</code>或<code>TOOLS.md</code>中</ul><p>生成记忆的时间点也很关键。记忆一般是自动生成的。触发记忆生成的条件可以是上下文压缩时，或者对话结束时。<h2 id=%E8%AE%B0%E5%BF%86%E7%9A%84%E5%AD%98%E5%82%A8>记忆的存储 <a href=#%E8%AE%B0%E5%BF%86%E7%9A%84%E5%AD%98%E5%82%A8 class=direct-link>#</a></h2><p>Clawdbot的记忆系统的设计理念是“记忆就是markdown文本，保存在agent的workspace文件夹中”。<h3 id=%E4%B8%A4%E5%B1%82%E8%AE%B0%E5%BF%86%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84>两层记忆文件结构 <a href=#%E4%B8%A4%E5%B1%82%E8%AE%B0%E5%BF%86%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84 class=direct-link>#</a></h3><p>记忆文件保存在agent的workspace目录下（默认路径是<code>~/clawd/</code>）:<pre><code>~/clawd/
+|- Memory.md # 第二层：长期记忆
+└─ memory/
+    |- 2026-01-26.md  # 第一层：日志
+    |- 2026-01-25.md  
+    |- 2026-01-24.md
+    └─ ...
+</code></pre><h4 id=%E7%AC%AC%E4%B8%80%E5%B1%82%EF%BC%9A%E6%97%A5%E5%BF%97%EF%BC%88memory%2Fyyyy-mm-dd.md%EF%BC%89>第一层：日志（<code>memory/YYYY-MM-DD.md</code>） <a href=#%E7%AC%AC%E4%B8%80%E5%B1%82%EF%BC%9A%E6%97%A5%E5%BF%97%EF%BC%88memory%2Fyyyy-mm-dd.md%EF%BC%89 class=direct-link>#</a></h4><p>这些日志由agent每天写入。一般只添加不删除。每当agent认为需要记下某些信息，或者用户明确要求agent记忆某些信息时，agent会自动将这些信息写入日志。日志可以是如下内容。<pre><code># 2026-01-26
+
+## 10:30 AM - API Discussion
+Discussed REST vs GraphQL with user. Decision: use REST for simplicity.
+Key endpoints: /users, /auth, /projects.
+
+## 2:15 PM - Deployment
+Deployed v2.3.0 to production. No issues.
+
+## 4:00 PM - User Preference
+User mentioned they prefer TypeScript over JavaScript.
+</code></pre><h4 id=%E7%AC%AC%E4%BA%8C%E5%B1%82%EF%BC%9A%E9%95%BF%E6%9C%9F%E8%AE%B0%E5%BF%86%EF%BC%88memory.md%EF%BC%89>第二层：长期记忆（<code>MEMORY.md</code>） <a href=#%E7%AC%AC%E4%BA%8C%E5%B1%82%EF%BC%9A%E9%95%BF%E6%9C%9F%E8%AE%B0%E5%BF%86%EF%BC%88memory.md%EF%BC%89 class=direct-link>#</a></h4><p>长期记忆是精心编撰的、持久的记忆和知识。每当有重大事件、想法、决策、意见或教训时，agent就会把它们编撰成长期记忆。长期记忆类似如下：<pre><code># Long-term Memory
+
+## User Preferences
+- Prefers TypeScript over JavaScript
+- Likes concise explanations
+- Working on project "Acme Dashboard"
+
+## Important Decisions
+- 2026-01-15: Chose PostgreSQL for database
+- 2026-01-20: Adopted REST over GraphQL
+- 2026-01-26: Using Tailwind CSS for styling
+
+## Key Contacts
+- Alice (alice@acme.com) - Design lead
+- Bob (bob@acme.com) - Backend engineer
+</code></pre><h3 id=agent%E5%A6%82%E4%BD%95%E7%9F%A5%E9%81%93%E8%A6%81%E8%AF%BB%E5%8F%96%E8%AE%B0%E5%BF%86>Agent如何知道要读取记忆 <a href=#agent%E5%A6%82%E4%BD%95%E7%9F%A5%E9%81%93%E8%A6%81%E8%AF%BB%E5%8F%96%E8%AE%B0%E5%BF%86 class=direct-link>#</a></h3><p>记忆的使用说明被定义在AGENTS.md文件里。每次对话这个文件都会被自动加载。这个文件内容如下：<pre><code>## Every Session
+
+Before doing anything else:
+1. Read SOUL.md - this is who you are
+2. Read USER.md - this is who you are helping
+3. Read memory/YYYY-MM-DD.md (today and yesterday) for recent context
+4. If in MAIN SESSION (direct chat with your human), also read MEMORY.md
+
+Don't ask permission, just do it.
+</code></pre><h2 id=%E8%AE%B0%E5%BF%86%E7%B4%A2%E5%BC%95>记忆索引 <a href=#%E8%AE%B0%E5%BF%86%E7%B4%A2%E5%BC%95 class=direct-link>#</a></h2><p>每当记忆文件更新时，都会触发以下操作：<ol><li>记忆文件更新<li>记忆文件监控程序检测到变动，延迟1.5秒让写入完成<li>将记忆内容分块：每400个tokens一个记忆块，相邻两个记忆块保留80个tokens的重叠区。每个记忆块大小为400个tokens是平衡语义连续性和颗粒度。重叠区确保跨记忆块的信息点不被切断。这两个数值均可重新设定<li>每个记忆块转换成向量。每个向量1536维<li>记忆块存储在<code>~/.clawdbot/memory/&lt;agentId>.sqlite</code>中。数据库结构如下：<ul><li>chunks (id, path, start_line, end_line, text, hash)<li>chunks_vec (id, embedding) -> sqlite-vec<li>chunks_fts (text) -> FTS5 full-text<li>embedding_cache (hash, vector) -> avoid re-embedding</ul></ol><blockquote><p>sqlite-vec是一个sqlite的扩展，用于直接在sqlite中进行基于向量的模糊查询。用了sqlite-vec的支持就不需要专门的向量数据库了。<p>FTS5是sqlite内置的全文搜索引擎，支持BM25关键字匹配。两者配合允许Clawdbot进行基于语义和关键词的混合检索。</blockquote><h2 id=%E8%AE%B0%E5%BF%86%E6%A3%80%E7%B4%A2>记忆检索 <a href=#%E8%AE%B0%E5%BF%86%E6%A3%80%E7%B4%A2 class=direct-link>#</a></h2><p>当查询记忆是，Clawdbot会同时执行两套检索策略。基于向量的语义检索查询意思相同的信息。基于BM25的关键字检索则尝试匹配tokens。两套策略的查询结果会进行加权平均，计算<strong>最终匹配分 = (0.7 * 语义检索匹配分) + (0.3 * 关键词检索匹配分)</strong>。<p>加权平均的权重设置为70/30的原因是：语义检索相似度是记忆召回的主要指标。BM25的关键字匹配则可以补全一些语义检索可能漏掉的信息，比如人名、ID值、日期等。<p>最终匹配分低于一个阈值的搜索结果会被自动过滤掉。这个阈值默认为0.35且可以配置。<p>这套检索策略保证既可以找到语义相关的记忆，也不会漏掉需要精确检索的信息点。<h2 id=%E5%A4%9Aagents%E7%9A%84%E8%AE%B0%E5%BF%86%E7%AE%A1%E7%90%86>多agents的记忆管理 <a href=#%E5%A4%9Aagents%E7%9A%84%E8%AE%B0%E5%BF%86%E7%AE%A1%E7%90%86 class=direct-link>#</a></h2><p>Clawdbot支持多agents模式。在这个模式下，每个agent拥有完全隔离的记忆文件系统：<pre><code>~/.clawdbot/memory/   # State directory
+|- main.sqlite       # Vector index for "main" agent
+└─ work.sqlite       # Vector index for "work" agent
+
+~/clawd/              # "main" agent workspace
+|- MEMORY.md
+└─ memory/
+    └─ 2026-01-26.md
+
+~/clawd-work/         # "work" agent workspace
+|— MEMORY.md
+└─ memory/
+    └─ 2026-01-26.md
+</code></pre><p>每个agent有完全独立的记忆文件结构。每个agent也有完全独立的记忆块数据库，保存在Clawdbot根目录下。记忆管理操作会明确指出是哪个agent ID，在哪个workspace文件夹下进行。因此记忆检索和更新只会在每个agent自己的记忆系统中进行，默认情况下不会出现跨agents的记忆操作。<p>你可能会问：一个agent能否读取其他agent的记忆呢？默认情况下不行。每个agent只能访问自己的workspace。当然，workspace只是一个弱sandbox概念，并不是一个硬性边界。理论上一个agent时可以通过绝对路径访问其他agents的记忆文件系统的。除非你明确设置agent间强隔离。<div class=annotation><div class=annotation__text><span class=annotation__mark>这种agents间的记忆隔离设计对于不同上下文管理是很有价值的。你可以想象一个应用场景：whatsapp上有一个“私人”agent，Slack上有一个“工作”agent，且这两个agents之间的记忆是完全不同de。这样可以有效避免记忆混淆。</span></div><aside class=annotation__note>或许可以让不同agents共享记忆空间。这样某些情况下可能更方便，比如在选择加班时机时可以看到家庭活动的安排，避免冲突。而记忆混淆的弊端则可以通过更优化的记忆提取技术规避。</aside></div><h2 id=%E9%95%BF%E5%AF%B9%E8%AF%9D%E5%9C%BA%E6%99%AF%E4%B8%8B%E7%9A%84%E5%8E%8B%E7%BC%A9%EF%BC%88compaction%EF%BC%89>长对话场景下的压缩（Compaction） <a href=#%E9%95%BF%E5%AF%B9%E8%AF%9D%E5%9C%BA%E6%99%AF%E4%B8%8B%E7%9A%84%E5%8E%8B%E7%BC%A9%EF%BC%88compaction%EF%BC%89 class=direct-link>#</a></h2><p>每个大模型的上下文窗口都是有限的。Claude的上下文窗口为200K个tokens，ChatGPT-5.1的上下文窗口有1M。不论上下文窗口有多大，都会被持续的长对话耗尽。<p>当对话太长导致历史对话信息长度临近窗口上限时，Clawdbot会使用压缩：将较老的对话压缩，同时尽量保持新近对话的完整性。以下是一个例子：<pre class=language-text><code class=language-text>┌──────────────────────────────────────────────────────────────┐<br>| Before compaction                                            |<br>| Context: 180,000/200,000 tokens                              |<br>|                                                              |<br>| [Turn 1] User:  "Let's build an API"                         |<br>| [Turn 2] Agent: "Sure! What endpoints do you need?"          |<br>| [Turn 3] User:  "Users and auth"                             |<br>| [Turn 4] Agent: Creates 500-line schema                      |<br>| [Turn 5] User:  "Add rate limiting"                          |<br>| [Turn 6] Agent: Modify code                                  |<br>| ...                                                          |<br>| [Turn 150] User: "What's the status?"                        |<br>|                                                              |<br>| APPRAOCHING LIMIT                                            |<br>└──────────────────────────────────────────────────────────────┘<br>                             |<br>                             ▼<br>┌──────────────────────────────────────────────────────────────┐<br>| Compaction Triggered                                         |<br>|                                                              |<br>| 1. Summarize turns 1-140 into a compact summary              |<br>| 2. Keep turns 141-150 intact (recent context)                |<br>| 3. Persist summary to JSONL transcript                       |<br>└──────────────────────────────────────────────────────────────┘<br>                             |<br>                             ▼<br>┌──────────────────────────────────────────────────────────────┐<br>| After Compaction                                             |<br>| Context: 45,000/200,000 tokens                               |<br>|                                                              |   <br>|  [SUMMARY] "Build REST API with /users, /auth endpoints.     |<br>|  Implemented JWT auth, rate limiting (100 req/min),          |<br>|  PostgreSQL database. Deployed to staging v2.4.0.            |<br>|  Current focus: production deployment prep."                 |<br>|                                                              |<br>|  [Turn 141-150 preserved as-is]                              |<br>└──────────────────────────────────────────────────────────────┘<br></code></pre><h2 id=%E8%87%AA%E5%8A%A8%E5%8E%8B%E7%BC%A9-vs-%E6%89%8B%E5%8A%A8%E5%8E%8B%E7%BC%A9>自动压缩 vs 手动压缩 <a href=#%E8%87%AA%E5%8A%A8%E5%8E%8B%E7%BC%A9-vs-%E6%89%8B%E5%8A%A8%E5%8E%8B%E7%BC%A9 class=direct-link>#</a></h2><p>当长对话内容逼近窗口大小时，自动压缩会被自动触发：<ul><li>你会看到<code>Auto-compaction complete</code>的log记录<li>原来的输入信息会结合压缩后的上下文再次被提交</ul><p>手动压缩需要用户使用<code>/compact</code>命令触发：<pre><code>/compact Focus on decisions and open questions
+</code></pre><p>与其他一些优化不同，压缩操作会将数据持久化到磁盘。摘要信息会写入会话的JSONL转录文件，因此后续会话将从压缩后的历史记录开始。<h2 id=%E5%86%85%E5%AD%98%E5%88%B7%E6%96%B0(memory-flush)>内存刷新(Memory Flush) <a href=#%E5%86%85%E5%AD%98%E5%88%B7%E6%96%B0(memory-flush) class=direct-link>#</a></h2><p>基于大模型的压缩是一个有损压缩过程。重要的信息可能会被压缩丢失。为了避免这种情况，Clawdbot采用了压缩钱内存刷新机制。<p>当上下文逼近窗口大小时，Clawdbot会自动分析历史上下文，将重要的内容写入<code>memory/YYYY-MM-DD.md</code>日志，之后再进行记忆压缩。这样就避免丢失重要的记忆点。<p>内存刷新可以在<code>clawdbot.yaml</code>或<code>clawdbot.json</code>文件中配置。<pre><code>{
+  agents: {
+    defaults: {
+      compaction: {
+        reserveTokensFloor: 20000,
+        memoryFlush: {
+          enabled: true,
+          softThresholdTokens: 4000,
+          systemPrompt: "Session nearing compaction. Store durable memories now.",
+          prompt: "Write lasting notes to memory/YYYY-MM-DD.md; reply NO_REPLY if nothing to store."
+        }
+      }
+    }
+  }
+}
+</code></pre><h2 id=%E5%89%AA%E6%9E%9D(pruning)>剪枝(Pruning) <a href=#%E5%89%AA%E6%9E%9D(pruning) class=direct-link>#</a></h2><p>剪枝是针对某些工具返回结果太大而设计的。有时候单一<code>exec</code>命令可能返回50K字符的log。剪枝技术可以裁剪掉老的工具返回结果。这是一个信息损失的过程：老的工具返回结果一旦被残剪掉就无法恢复了。<pre><code>┌──────────────────────────────────────────────────────────────┐
+| BEFORE PRUNING (in-memory)                                   |
+|                                                              |
+| Tool result (exec): [50K chars of npm install output]        |
+| Tool result (read): [Large config file, 10K chars]           |
+| Tool result (exec): [Build logs, 30K chars]                  |
+| User: "Did the build succeed?"                               |
+└──────────────────────────────────────────────────────────────┘
+                               |
+                               ▼
+┌──────────────────────────────────────────────────────────────┐
+| AFTER PRUNING (sent to model)                                |
+|                                                              |
+| Tool result (exec): "npm WARN ...[truncated]... Succes"      |
+| Tool result (read): "[Old tool result content cleared]"      |
+| Toll result (exec): "[Kept - too recent to prune]"           |
+| User: "Did the build succeed?"                               |
+└──────────────────────────────────────────────────────────────┘
+
+JSONL file on disk: UNCHANGED (full outputs still there)
+</code></pre><h2 id=cache-ttl-pruning>Cache-TTL Pruning <a href=#cache-ttl-pruning class=direct-link>#</a></h2><p>Anthropic 会将提示符前缀缓存最多 5 分钟，以降低重复调用时的延迟和成本。如果在 TTL 窗口内发送相同的提示符前缀，缓存的令牌成本可降低约 90%。TTL 过期后，下一个请求必须重新缓存整个提示符。<p>问题在于：如果会话超过 TTL 后仍处于空闲状态，则下一个请求将丢失缓存，并且必须以完整的“缓存写入”价格重新缓存完整的会话历史记录。<p>缓存 TTL 修剪通过检测缓存何时过期并在下次请求之前修剪旧的工具结果来解决这个问题。更小的重新缓存提示意味着更低的成本：<pre><code>{
+  agent: {
+    contextPruning: {
+      mode: "cache-ttl",      // Only prune after cache expires
+      ttl: "600",              // Match your cacheControlTtl
+      keepLastAssistants: 3,  // Protect recent tool results
+      softTrim: {
+        maxChars: 4000,
+        headChars: 1500,
+        tailChars: 1500
+      },
+      hardClear: {
+        enabled: true,
+        placeholder: "[Old tool result content cleared]"
+      }
+    }
+  }
+}
+</code></pre><h2 id=%E5%AF%B9%E8%AF%9D%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F>对话的生命周期 <a href=#%E5%AF%B9%E8%AF%9D%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F class=direct-link>#</a></h2><p>对话并不是永远持续的。对话可以根据配置规则重置。对话的重置给记忆创造了天然的边界。默认的对话重置规则是每天重置。但是也有其他可选项：<ul><li>每天重置：每天固定时刻重置对话，比如凌晨4点<li>静默重置：如果这个对话超过N分钟没有任何新的交流则重置<li>每天+静默：两者配合，看谁先发生</ul><h3 id=%E5%AF%B9%E8%AF%9D%E8%AE%B0%E5%BF%86%E9%92%A9%E5%AD%90(session-memory-hook)>对话记忆钩子(Session Memory Hook) <a href=#%E5%AF%B9%E8%AF%9D%E8%AE%B0%E5%BF%86%E9%92%A9%E5%AD%90(session-memory-hook) class=direct-link>#</a></h3><p>当你使用<code>/new</code>开始一个新的对话是，对话记忆钩子回自动保存上下文，算法如下：<pre><code>┌──────────────────────────────────────────────────────────────┐
+| SESSION-MEMORY HOOK TRIGGERED                                |
+| 1. 获取最近15分钟内的对话信息                                    |
+| 2. 利用大模型生成描述性的片段                                    |
+| 3. 保存至 ~/clawd/memory/2026-02-26-api-design.md             |
+└──────────────────────────────────────────────────────────────┘
+                                ｜
+                                ▼
+┌──────────────────────────────────────────────────────────────┐
+| NEW SESSION                                                  |
+| Previous context is now searchable via memory_search         |
+└──────────────────────────────────────────────────────────────┘
+</code></pre><h2 id=%E6%80%BB%E7%BB%93>总结 <a href=#%E6%80%BB%E7%BB%93 class=direct-link>#</a></h2><p>Clawdbot的记忆系统之所以成功，是因为它的设计理念拥抱了一些关键原则：<ol><li>选择透明而非黑盒。记忆本质上就是markdown。你可以读懂它，修改它，对它版本控制。没有晦涩的数据库或难懂的文件格式。<li>可检索而不是一味添加。与其把所有信息都塞进上下文，agent可以搜素它认为相关的数据，并只将相关的数据添加进上下文。这保持了上下文的关注性，也降低了成本。<li>可持续而不是仅在对话中存在。重要的信息被保存在磁盘文件中，而不仅仅在对话的历史记录里。压缩并不会损失已经保存到文件中的内容。且压缩的过程就会将重要的对话上下文写入磁盘文件永久保留。<li>多样而不是单一的记忆检索策略。仅使用向量检索可能会漏掉一些精准匹配才能获得的重要相关信息。仅使用精准匹配则可能漏掉语义相关信息。两者相结合就能完整检索到相关信息。</ol><share-widget><button aria-label=Share href=https://blog.seanji.net/posts/20260223/ on-click=share><div></div></button></share-widget><script type=application/ld+json>{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Clawdbot是如何管理记忆的",
+  "image": [],
+  "author": "Sean Ji", 
+  "genre": "Insert a schema.org genre", 
+  "publisher": {
+    "@type": "Organization",
+    "name": "Sean Ji",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/img/favicon/favicon-192x192.png?hash=108d534956"
+    }
+  },
+  "url": "https://blog.seanji.net/posts/20260223/",
+  "mainEntityOfPage": "https://blog.seanji.net/posts/20260223/",
+  "datePublished": "2026-02-23",
+  "dateModified": "2026-02-25",
+  "description": "大模型是没有记忆的。对于大模型而已，你发给它的每条信息本身的内容就是它下一个回复的所有输入。你和它的历史聊天信息大模型本身是不存储的。当然，这样的大模型可以完成的任务是很局限的。因此我们必须让大模型具有记忆，能够和我们实现对话，理解上下文。记忆管理就是每个agent需要精心设计的..."
+}</script></article></main><footer><a href=/about/ >Sean Ji</a></footer>
