@@ -10,6 +10,7 @@ date: Last Modified
 {% set stickers = false %}
 {% set dizangjing = false %}
 {% set jingangjing = false %}
+{% set monitoring = false %}
 {% for post in collections.posts %}
   {% if post.fileSlug == "always_on_top" %}
     {% set pinned = post %}
@@ -23,9 +24,12 @@ date: Last Modified
   {% if post.fileSlug == "jingangjing" %}
     {% set jingangjing = post %}
   {% endif %}
+  {% if post.fileSlug == "monitoring" %}
+    {% set monitoring = post %}
+  {% endif %}
 {% endfor %}
 
-{% if pinned or stickers or dizangjing or jingangjing %}
+{% if pinned or stickers or dizangjing or jingangjing or monitoring %}
 <div id="Always on top">
   <h3>Always on top</h3>
   <ul>
@@ -40,6 +44,9 @@ date: Last Modified
     {% endif %}
     {% if jingangjing %}
     <li><a href="{{ jingangjing.url | url }}">{{ jingangjing.data.title or "Jingangjing" }}</a></li>
+    {% endif %}
+    {% if monitoring %}
+    <li><a href="{{ monitoring.url | url }}">{{ monitoring.data.title or "Monitoring" }}</a></li>
     {% endif %}
     <li><a href="https://pythonformatter.seanji.net/" target="_blank" rel="noopener noreferrer">Python formatter</a></li>
   </ul>
@@ -60,7 +67,7 @@ date: Last Modified
   <ul id="post-list">
     {# Newest first #}
     {% for post in collections.posts | reverse %}
-      {% if post.fileSlug != "always_on_top" and post.fileSlug != "stickers" and post.fileSlug != "dizangjing" and post.fileSlug != "jingangjing" %}
+      {% if post.fileSlug != "always_on_top" and post.fileSlug != "stickers" and post.fileSlug != "dizangjing" and post.fileSlug != "jingangjing" and post.fileSlug != "monitoring" %}
         <li data-tags="{{ (post.data.tags or []) | join('|') }}">
           <a href="{{ post.url | url }}">{{ post.data.title or post.url }}</a>
           <time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
